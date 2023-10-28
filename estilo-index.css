@@ -1,0 +1,296 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: OG;
+    src: url(fontes/OldLondon.ttf);
+}
+@font-face {
+    font-family: Tag;
+    src: url(fontes/aAnotherTag.ttf);
+}
+
+@font-face {
+    font-family: Street;
+    src: url(fontes/DOCALLISME\ ON\ STREET.ttf);
+}
+
+@font-face {
+    font-family: Graffiti;
+    src: url(fontes/GraffitiNewDemoRegular.ttf);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+header {
+    width: 85%;
+    height: 95%;
+    border: 1px solid white;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+
+header > .menu_lado, .musica_lado {
+    position: relative;
+    width: 25%;
+    height: 90%;
+    /* border: 1px solid rgb(255, 75, 75); */
+    background-color: rgb(22, 22, 22);
+    /* box-shadow: 5px 0px 2px rgb(255, 75, 75); */
+    color: white;
+}
+
+header > .musica_lado {
+    width: 25%;
+    background-color: rgb(22, 22, 22);
+}
+
+header > .master_play {
+    width: 100%;
+    height: 10%;
+    background-color: rgb(55, 55, 55);
+    box-shadow: 8px 3px 8px black;
+}
+
+header > .menu_lado > h1 {
+    font-size: 30px;
+    margin: 15px 0px 0px 20px;
+    font-weight: 500;
+}
+
+header > .menu_lado > .playlist {
+    margin: 40px 0px 0px 20px;
+}
+
+header > .menu_lado > .playlist > h4 {
+    font-size: 14px;
+    font-weight: 400;
+    padding-bottom: 10px;
+    color: rgb(168, 168, 168);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: .2s linear;
+}
+
+header > .menu_lado > .playlist > h4:hover {
+    color: white;
+}
+
+header > .menu_lado > .playlist > h4 > span {
+    position: relative;
+    margin-right: 25px;
+}
+
+header > .menu_lado > .playlist > h4 > span::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border: 2px solid rgb(168, 168, 168);
+    border-radius: 50%;
+    top: -4px;
+    transition: .2s linear;
+}
+
+header > .menu_lado > .playlist > h4:hover > span::before {
+    border: 2px solid white;
+}
+
+header > .menu_lado > .playlist > h4 > .bi {
+    display: none;
+}
+
+header > .menu_lado > .playlist > .ativo {
+    color: red;
+}
+
+header > .menu_lado > .playlist > .ativo > span {
+    display: none;
+}
+
+header > .menu_lado > .playlist > .ativo > .bi {
+    display: flex;
+    margin-right: 20px;
+}
+
+header > .menu_lado > .menu_musica {
+    width: 94%;
+    height: 320px;
+    /* border: 1px solid white; */
+    margin-top: 40px;
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+header > .menu_lado > .menu_musica > li {
+    list-style-type: none;
+    padding: 5px 0px 5px 15px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+header > .menu_lado > .menu_musica > li:hover {
+    background-color: rgb(142, 142, 142);
+    border-radius: 5px;
+}
+
+header > .menu_lado > .menu_musica > li > span {
+    font-size: 12px;
+    font-weight: 600;
+    color: red;
+}
+
+header > .menu_lado > .menu_musica > li > .bi {
+    display: none;
+}
+
+
+header > .menu_lado > .menu_musica > li:hover > span {
+    display: none;    
+}
+
+header > .menu_lado > .menu_musica > li:hover > .bi {
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+    display: inline;    
+    cursor: pointer;
+}
+
+header > .menu_lado > .menu_musica > li > img {
+    width: 32px;
+    height: 32px;
+    margin-left: 15px;
+}
+
+header > .menu_lado > .menu_musica > li > h5 {
+    font-size: 11px;
+    margin-left: 10px;
+}
+
+header > .menu_lado > .menu_musica > li > h5 > .subtitulo {
+    font-size: 5px;
+    color: gray;
+}
+
+header > .menu_lado > .menu_musica > li > .detalhe > .bi {
+    font-size: 12px;
+    margin-right: 5px;
+    color: white;
+}
+
+header > .menu_lado > .menu_musica > li > .detalhe > .bi:hover {
+    font-size: 12px;
+    margin-right: 5px;
+    color: white;
+}
+
+
+header > .menu_lado > .menu_musica > li > .detalhe {
+    position: absolute;
+    font-size: 10px;
+    right: 15px;
+    top: 35%;
+}
+
+header > .master_play {
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+header > .master_play > .onda {
+    width: 30px;
+    height: 30px;
+    border: 1 solid white;
+    padding-bottom: 5px;
+    display: flex;
+    align-items: flex-end;
+    margin-right: 10px;
+}
+
+header > .master_play > .onda > .onda1 {
+    width: 3px;
+    height: 10px;
+    margin-right: 3px;
+    border-radius: 10px 10px 0px 0px;
+    background: red; 
+    /* animation: onda .7s linear infinite; */
+}
+
+header > .master_play > .onda > .onda1:nth-child(2) {
+    height: 13px;
+    /* animation-delay: .3s; */
+}
+
+header > .master_play > .onda > .onda1:nth-child(3) {
+    height: 8px;
+    /* animation-delay: .5s; */
+}
+
+@keyframes onda {
+    0% {
+        height: 10px;
+    }
+    50% {
+        height: 15px;
+    }
+    100% {
+        height: 10px;
+    }
+}
+
+
+/* JAVASCRIPT CLASS WAVE */
+
+header > .master_play > .ativo2 > .onda1 {
+    animation: onda .7s linear infinite;
+}
+
+header > .master_play > .ativo2 > .onda1:nth-child(2) {
+    animation-delay: .3s;
+}
+
+header > .master_play > .ativo2 > .onda1:nth-child(3) {
+    animation-delay: .5s;
+}
+
+header > .master_play > img {
+    width: 35px;
+    height: 35px;
+}
+
+header > .master_play > .capa_musica {
+    width: 130px;
+    height: 35px;
+    margin-left: 10px;
+    color: white;
+    line-height: 17px;
+}
+
+header > .master_play > .capa_musica > .subtitulo {
+    width: 130px;
+    height: 35px;
+    font-size: 14px;  
+}
+header > .master_play > .bi {
+    margin-left: 20px;    
+}
