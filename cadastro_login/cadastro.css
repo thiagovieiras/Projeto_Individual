@@ -1,0 +1,287 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: OG;
+    src: url(../fontes/OldLondon.ttf);
+}
+@font-face {
+    font-family: Tag;
+    src: url(../fontes/aAnotherTag.ttf);
+}
+
+@font-face {
+    font-family: Street;
+    src: url(../fontes/DOCALLISME\ ON\ STREET.ttf);
+}
+
+@font-face {
+    font-family: Graffiti;
+    src: url(../fontes/GraffitiNewDemoRegular.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(22, 22, 22);
+    width: 100%;
+    height: 100vh;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+header > a > .bi {
+    font-size: 22px;
+    color: rgba(255, 23, 23, 0.699);
+    margin: 0 25px;
+    cursor: pointer;
+}
+
+main {
+    height: 80%;
+    width: 55vw;
+    max-width: 550px;
+    text-align: center;
+    margin: auto;
+
+}
+
+
+main > .logo {
+    font-family: Street;
+    color: white;
+    font-size: 55px;
+    text-align: center;
+    padding-bottom: 15px;
+    margin-bottom: 18px;
+    border-bottom: 2px solid white;
+    
+}
+
+main > label {
+    color: red;
+    position: relative;
+    bottom: 10px;
+    left: 10px;
+}
+
+main > .genero {
+    margin: 5px 0;
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+}
+
+main > .genero > .not-label {
+    color: white;
+    position: unset;
+}
+
+main > .genero > .not-label::after {
+    content: '';
+    width: 9px;
+    height: 9px;
+    margin: 5px 10px 0px 10px;
+    border: 2px solid rgb(83, 83, 83);
+    border-radius: 50%;
+    position: unset;
+    display: inline-block;
+    box-shadow: 0px 0px 5px rgba(142, 142, 142, 0.545);
+}
+
+main > .genero > #input_fem:checked ~ .label_fem::after {
+    border: 2px solid rgb(255, 23, 23, 0.699);
+    background-color: rgb(83, 83, 83);
+}
+main > .genero > #input_mas:checked ~ .label_mas::after {
+    border: 2px solid rgb(255, 23, 23, 0.699);
+    background-color: rgb(83, 83, 83);
+}
+
+
+main > .genero > .not-label > span {
+    color: red;
+    position: unset;
+
+}
+
+main > input::placeholder {
+    color: rgb(209, 209, 209);
+}
+
+main > input[type=text], input[type=password], input[type=email] {
+    width: 85%;
+    height: 30px;
+    padding: 5px 20px;
+    border-radius: 3px;
+    background-color: rgb(83, 83, 83);
+    border-style: none;
+    outline: none;
+    margin: 5px 0px;
+    color: rgba(255, 23, 23, 0.699);
+}
+
+main > .genero > input[type=radio] {
+    display: none;
+}
+
+main > input:focus {
+    background-color: rgb(54, 54, 54);
+}
+
+main > .privacidade {
+    margin: 10px 0;
+    color: white;
+}
+
+main > .privacidade > input[type="checkbox"] {
+    display: none;
+}
+
+main > .privacidade > input:checked ~ label::before {
+    border: 2px solid rgba(255, 23, 23, 0.699);
+    background-color: rgb(83, 83, 83);
+}
+
+main > .privacidade > label::before {
+    content: '';
+    margin: 0 5px;
+    border: 2px solid rgba(255, 23, 23, 0.699);
+    width: 7px;
+    height: 7px;
+    border-radius: 30%;
+    display: inline-block;
+    box-shadow: 0px 0px 5px rgba(142, 142, 142, 0.545);
+}
+
+main > .privacidade > a{
+    margin: 10px 0;
+    color: rgba(255, 23, 23, 0.699);
+}
+
+main > p {
+    color: white;
+    margin: 5px 0 10px;
+}
+
+main > .fundo {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main > .fundo > p {
+    color: white;
+    margin-right: 10px;
+}
+
+main > .fundo > a {
+    padding: 5px 0;
+    color: rgb(209, 209, 209);
+}
+
+main > .fundo > a:hover {
+    color: rgba(255, 23, 23, 0.699);
+    font-size: 18px;    
+    transition: .1s linear;
+}
+
+main > button {
+    width: 95%;
+    padding: 10px 0;
+    border-radius: 20px;
+    margin: 30px 0;
+    background-color: transparent;
+    border: 2px solid rgba(255, 23, 23, 0.699);
+    color: rgba(255, 23, 23, 0.699);
+    font-weight: 600;
+}
+
+main >  button:hover {
+    width: 98%;
+    padding: 11px 0;
+    transition: .1s linear;
+}
+
+main > .redes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    justify-content: space-around;
+    color: white;
+    font-size: 18px;
+}
+
+main > .redes > .face {
+    padding: 5px 20px;
+    background-color: rgb(55, 99, 182);
+    border-radius: 20px;
+    width: 60%;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .35s ease-in;
+}
+
+main > .redes > .face:hover {
+    transition: .4s ease-out;
+    width: 190px;
+}
+
+main > .redes > .face > img {
+    position: relative;
+    left: 5%;
+    width: 10px;
+    height: 20px;
+    transition: .35s ease-in;
+}
+
+main > .redes > .face:hover > img {
+    transition: .4s ease-out;
+    left: 8%;
+}
+
+main > .redes > .google {
+    padding: 5px 20px;
+    background-color: rgb(55, 55, 55);
+    border-radius: 20px;
+    width: 70%;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .35s ease-in;
+}
+
+main > .redes > .google:hover {
+    transition: .4s ease-out;
+    width: 190px;
+}
+
+main > .redes > .google > img {
+    position: relative;
+    left: 7%;
+    width: 15px;
+    height: 15px;
+    transition: .35s ease-in;
+}
+
+main > .redes > .google:hover > img {
+    transition: .4s ease-out;
+    left: 10%;
+}

@@ -47,7 +47,8 @@ body {
 header {
     width: 98%;
     height: 98%;
-    border: 1px solid white;
+    /* border: 1px solid white; */
+    border-radius: 20px;
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
@@ -72,9 +73,10 @@ header > .master_play {
 }
 
 header > .menu_lado > h1 {
-    font-size: 30px;
-    margin: 15px 0px 0px 20px;
+    font-size: 40px;
+    margin: 15px 0px 0px 25px;
     font-weight: 500;
+    font-family: Street;
 }
 
 header > .menu_lado > .playlist {
@@ -122,6 +124,15 @@ header > .menu_lado > .playlist > h4 > .bi {
 
 header > .menu_lado > .playlist > .ativo {
     color: red;
+    width: 52px;
+}
+
+header > .menu_lado > .playlist > .lista_musicas {
+    width: 82px;
+}
+
+header > .menu_lado > .playlist > .recentemente {
+    width: 160px;
 }
 
 header > .menu_lado > .playlist > .ativo > span {
@@ -444,15 +455,6 @@ header > .musica_lado {
     background-color: rgb(22, 22, 22);
 }
 
-header > .musica_lado::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 300px;
-    background: url('bg.png');
-    z-index: -1;
-}
-
 header > .musica_lado > nav {
     width: 90%;
     height: 10%;
@@ -467,9 +469,9 @@ header > .musica_lado > nav > ul {
     display: flex;
 }
 
-header > .musica_lado > nav > ul > li {
+header > .musica_lado > nav > ul > a {
     position: relative;
-    list-style-type: none;
+    text-decoration: none;
     font-size: 13px;
     color: rgb(142, 142, 142);
     margin-right: 25px;
@@ -477,15 +479,11 @@ header > .musica_lado > nav > ul > li {
     transition: .3s linear;
 }
 
-header > .musica_lado > nav > ul > li:hover {
+header > .musica_lado > nav > ul > a:hover {
     color: white;
 }
 
-header > .musica_lado > nav > ul > li:nth-child(1) {
-    color: white;
-}
-
-header > .musica_lado > nav > ul > li > span {
+header > .musica_lado > nav > ul > a > span {
     position: absolute;
     width: 100%;
     height: 2.5px;
@@ -498,7 +496,7 @@ header > .musica_lado > nav > ul > li > span {
 header > .musica_lado > nav > .procura {
     position: relative;
     width: 40%;
-    padding: 1px 10px;
+    padding: 1px 0px;
     border-radius: 20px;
     color: white;
 }
@@ -525,25 +523,41 @@ header > .musica_lado > nav > .procura > input {
     background: none;
     outline: none;
     border: none;
-    padding: 0px 10px;
     color: white;
     font-size: 12px;
+    width: 92%;
 }
 
 header > .musica_lado > nav > .usuario {
-    position: relative;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    cursor: pointer;
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
-header > .musica_lado > nav > .usuario > img{
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    box-shadow: 2px 2px 0px rgb(22, 22, 22);
+header > .musica_lado > nav > .usuario > a{
+    text-decoration: none;
+    color: rgba(255, 23, 23, 0.699);
+    transition: .2s linear;
+    font-weight: 600;
+}
+
+header > .musica_lado > nav > .usuario > a:nth-child(1):hover{
+    font-size: 17.5px;
+}
+
+header > .musica_lado > nav > .usuario > a:nth-child(2){
+    text-decoration: none;
+    background-color: rgb(209, 209, 209);
+    padding: 7px;
+    border-radius: 15px;
+    color: rgba(255, 23, 23, 0.699);
+    font-weight: 600;
+}
+
+header > .musica_lado > nav > .usuario > a:nth-child(2):hover{
+    padding: 9px;
+    border-radius: 17px;
 }
 
 header > .musica_lado > .area_musica {
@@ -554,33 +568,36 @@ header > .musica_lado > .area_musica {
 
 header > .musica_lado > .area_musica > .conteudo {
     width: 90%;
-    height: 20%;
+    height: 30%;
     margin: auto;
-    /* border: 1px solid white; */
-    padding-top: 20px;
+    border-bottom: 1px solid white;
+    padding: 20px 0;
+    display: flex;
+    align-items: flex-end;
 }
 
 header > .musica_lado > .area_musica > .conteudo > h1 {
-    font-size: 25px;
+    font-size: 35px;
     font-weight: 600;
     color: white;
+    padding-left: 10px;
 }
 
-header > .musica_lado > .area_musica > .conteudo > p {
-    font-size: 11px;
-    font-weight: 400;
-    color: rgba(255, 23, 23, 0.699);
-    margin: 5px;
+header > .musica_lado > .area_musica > .conteudo > img {
+    width: 170px;
+    height: 170px;
 }
 
 header > .musica_lado > .area_musica > .conteudo > .botoes {
     margin-top: 15px;
+    margin-left: 20px;
+
 }
 
 header > .musica_lado > .area_musica > .conteudo > .botoes > button {
-    width: 130px;
+    width: 100px;
     height: 30px;
-    border: 2px solid white;
+    border: 2px solid rgb(209, 209, 209);
     outline: none;
     border-radius: 20px;
     background: rgba(255, 23, 23, 0.699);
@@ -593,7 +610,7 @@ header > .musica_lado > .area_musica > .conteudo > .botoes > button:hover {
     border: 2px solid rgba(255, 23, 23, 0.699);
     border-radius: 20px;
     background: none;
-    color: rgba(255, 23, 23, 0.699);
+    color: rgb(209, 209, 209);
 }
 
 header > .musica_lado > .area_musica > .conteudo > .botoes > button:nth-child(2) {
@@ -610,70 +627,40 @@ header > .musica_lado > .area_musica > .conteudo > .botoes > button:nth-child(2)
     color: white;
 }
 
-header > .musica_lado > .area_musica > .recomendado {
+header > .musica_lado > .area_musica > .lista_musicas {
     width: 90%;
     height: auto;
-    border: 1px solid white;
     margin: auto;
     margin-top: 15px;
 }
 
-header > .musica_lado > .area_musica > .recomendado > .rec_header {
+header > .musica_lado > .area_musica > .lista_musicas > .container_rec {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 95%;
-    height: 60px;
-    margin: auto;
+    flex-wrap: wrap;
 }
 
-header > .musica_lado > .area_musica > .recomendado > .rec_header > h4 {
-    color: white;
-    font-size: 20px;
-}
-
-header > .musica_lado > .area_musica > .recomendado > .rec_header > h4:hover {
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-header > .musica_lado > .area_musica > .recomendado > .rec_header > span {
-    color: rgba(255, 79, 79, 0.429);
-    font-size: 14px;
-}
-
-header > .musica_lado > .area_musica > .recomendado > .rec_header > span:hover {
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-header > .musica_lado > .area_musica > .recomendado > .container_rec {
-    display: flex;
-    justify-content: space-around;
-}
-
-header > .musica_lado > .area_musica > .recomendado > .container_rec > .rec_musicas {
+header > .musica_lado > .area_musica > .lista_musicas > .container_rec > .rec_musicas {
     background: rgb(33, 33, 33);
-    height: 180px;
-    width: 125px;
-    padding: 10px 10px;
+    height: 160px;
+    width: 130px;
+    padding: 10px;
     border-radius: 10px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    align-items: center;
     transition: .3s linear;
+    margin: 10px 5px;
 }
 
-header > .musica_lado > .area_musica > .recomendado > .container_rec > .rec_musicas:hover {
+header > .musica_lado > .area_musica > .lista_musicas > .container_rec > .rec_musicas:hover {
     background: rgb(80, 80, 80);
     cursor: pointer;
 
 }
 
-header > .musica_lado > .area_musica > .recomendado > .container_rec > .rec_musicas > .container_img {
+header > .musica_lado > .area_musica > .lista_musicas > .container_rec > .rec_musicas > .container_img {
     width: 100%;
-    height: 80px;
+    max-height: 120px;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -681,45 +668,63 @@ header > .musica_lado > .area_musica > .recomendado > .container_rec > .rec_musi
     
 }
 
-header > .musica_lado > .area_musica > .recomendado > .container_rec > .rec_musicas > .container_img > .img {
+header > .musica_lado > .area_musica > .lista_musicas > .container_rec > .rec_musicas > .container_img > .img {
     background-position: center;
     background-size: cover;
     width: 100%;
-    height: 100px;
+    height: 120px;
+}
+
+header > .musica_lado > .area_musica > .lista_musicas > .container_rec > .rec_musicas > .container_texto > .bi {
+    color: rgba(255, 0, 0, 0.5);
+    font-size: 30px;
+}
+
+header > .musica_lado > .area_musica > .lista_musicas > .container_rec > .rec_musicas:hover > .container_texto > .bi {
+    cursor: pointer;
+    color: rgba(255, 0, 0);
+}
+
+header > .musica_lado > .area_musica > .lista_musicas > .container_rec > .rec_musicas > .container_texto {
+    height: 90px;
+    display: flex;
+    align-items: flex-end;
+}
+
+header > .musica_lado > .area_musica > .lista_musicas > .container_rec > .rec_musicas > .container_texto > h5 {
+    color: white;
+    margin-top: 5px;
+    font-size: 16px;
+    width: 80%;
+    height: 70px;
+}
+
+
+header > .musica_lado > .area_musica > .lista_musicas > .container_rec > .rec_musicas > .container_img {
+    width: 100%;
+    height: 100%;
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+    flex-wrap: wrap;
 
 }
 
-header > .musica_lado > .area_musica > .recomendado > .container_rec > .rec_musicas > .container_img > .img > .bi {
+header > .musica_lado > .area_musica > .lista_musicas > .container_rec > .rec_musicas > .container_img > .bi {
     color: rgb(255, 0, 0);
     font-size: 35px;
-    margin: 0px 5px 5px 0px;
+    margin: 0px 5px 10px 0px;
     display: none;
-    transition: 2s linear;
-
-    
+    transition: 2s linear;   
+    position: relative; 
+    bottom: 40px;
 }
 
-header > .musica_lado > .area_musica > .recomendado > .container_rec > .rec_musicas:hover > .container_img > .img > .bi {
+header > .musica_lado > .area_musica > .lista_musicas > .container_rec > .rec_musicas:hover > .container_img > .bi {
     display: block;
     cursor: pointer;
     transition: 2s linear;
 }
-
-header > .musica_lado > .area_musica > .recomendado > .container_rec > .rec_musicas > .container_img > .img > .container_texto {
-    border: 1px solid white;
-    background-position: center;
-    background-size: cover;
-    height: 50px;
-}
-
-header > .musica_lado > .area_musica > .recomendado > .container_rec > .rec_musicas > .container_texto > h5 {
-    color: white;
-    font-size: 16px;
-}
-
 
 
 
