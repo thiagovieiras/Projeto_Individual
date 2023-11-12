@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAFIA</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/biblioteca.css">
+</head>
+<body>
+    <header>
+        <div class="musica_lado">
+            <nav>
+                <div class="menu_lado">
+                    <h1>Mafia</h1>
+                </div>
+                <ul>
+                    <a href="logado.html">Inicio <span></span></a>
+                    <a>Minha Biblioteca <span></span></a>
+                </ul>
+                <div class="procura">
+                    <label for="procurar"><i class="bi bi-search"></i></label>
+                    <input type="text" placeholder="O que você que ouvir?" id="procurar">
+                </div>
+                <div class="usuario">
+                    <img src="" alt="usuario" title="Rato (Thiago Vieira)" id="perfil">
+                    <div class="container_cor">
+                        <ul>
+                            <li onclick="alterar_cor()">Alterar cores
+                                <div id="cores">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </li>
+                            <li>Histórico</li>
+                            <a href="index.html">Sair</a>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="area_musica">
+                <div class="conteudo">
+                    <img src="../imagens/grupo revelação.png" alt="">
+                    <h1>Nacionais</h1>
+                    <div class="botoes">
+                        <button>Play</button>
+                        <button>Seguir</button>
+                    </div>
+                </div>
+                <div class="lista_musicas">
+                    <div class="container_rec">
+                        <div class="rec_musicas">
+                            <div class="container_img">
+                                <div class="img" style="    background-image: url(../imagens/grupo\ revelação.png);">
+                                </div>
+                            </div>
+                            <div class="container_texto">
+                                <h5>Grupo Revelação - Deixa Acontecer</h5>
+                                <i class="bi bi-play-circle-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="master_play">
+            <!-- <div class="status_musica">
+                <div class="onda">
+                    <div class="onda1"></div>
+                    <div class="onda1"></div>
+                    <div class="onda1"></div>
+                </div>
+                <img src="" alt="">
+                <div class="capa_musica">
+                    <h4>titulo da musica</h4>
+                    <div class="subtitulo">Nome do artista</div>
+                </div>
+                <i class="bi bi-heart"></i>
+            </div>
+            <div class="central">
+                <div class="icon">
+                    <i class="bi bi-skip-start-fill"></i>
+                     <i class="bi bi-play-circle-fill"></i>
+                    <i class="bi bi-pause-circle-fill"></i>
+                    <i class="bi bi-skip-end-fill"></i>
+                </div>
+                <div class="barra_musica">
+                    <span id="atual_comeco">0:00</span>
+                    <div class="barra">
+                        <input type="range" id="procura" min="0" value="0" max="100">
+                        <div class="barra2" id="barra2"></div>
+                        <div class="ponto"></div>
+                    </div>
+                    <span id="atual_final">0:00</span>
+                </div>
+            </div>
+            <div class="opcoes_aba">
+                <div class="vol">
+                    <i class="bi bi-volume-off"></i>
+                     <i class="bi bi-volume-down"></i>
+                    <i class="bi bi-volume-up"></i>
+                    <input type="range" id="procura" min="0" value="30" max="100">
+                    <div class="vol_barra"></div>
+                    <div class="ponto" id="vol_ponto"></div>
+                </div>
+            </div> -->
+        </div>
+    </header>
+   
+</body>
+</html>
+<script src="logado.js"></script>

@@ -1,0 +1,195 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: OG;
+    src: url(../fontes/OldLondon.ttf);
+}
+@font-face {
+    font-family: Tag;
+    src: url(../fontes/aAnotherTag.ttf);
+}
+
+@font-face {
+    font-family: Street;
+    src: url(../fontes/DOCALLISME\ ON\ STREET.ttf);
+}
+
+@font-face {
+    font-family: Graffiti;
+    src: url(../fontes/GraffitiNewDemoRegular.ttf);
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(22, 22, 22);
+    width: 100%;
+    height: 100vh;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+header > a > .bi {
+    font-size: 22px;
+    color: rgba(255, 23, 23, 0.699);
+    margin: 0 25px;
+    cursor: pointer;
+}
+
+main {
+    height: 80%;
+    width: 50vw;
+    max-width: 500px;
+    text-align: center;
+    margin: auto;
+}
+
+
+main > .logo {
+    font-family: Street;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+main > .redes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    justify-content: space-around;
+    color: white;
+    font-size: 18px;
+}
+
+main > .redes > .face {
+    padding: 5px 20px;
+    background-color: rgb(55, 99, 182);
+    border-radius: 20px;
+    width: 90%;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .35s ease-in;
+}
+
+main > .redes > .face:hover {
+    transition: .4s ease-out;
+    width: 190px;
+}
+
+main > .redes > .face > img {
+    position: relative;
+    left: 25%;
+    width: 10px;
+    height: 20px;
+    transition: .35s ease-in;
+}
+
+main > .redes > .face:hover > img {
+    transition: .4s ease-out;
+    left: 8%;
+}
+
+main > .redes > .google {
+    padding: 5px 20px;
+    background-color: rgb(55, 55, 55);
+    border-radius: 20px;
+    width: 90%;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .35s ease-in;
+}
+
+main > .redes > .google:hover {
+    transition: .4s ease-out;
+    width: 190px;
+}
+
+main > .redes > .google > img {
+    position: relative;
+    left: 27%;
+    width: 15px;
+    height: 15px;
+    transition: .35s ease-in;
+}
+
+main > .redes > .google:hover > img {
+    transition: .4s ease-out;
+    left: 10%;
+}
+
+main > p {
+    color: white;
+    margin: 5px 0 10px;
+}
+
+main > input::placeholder {
+    color: rgb(209, 209, 209);
+}
+
+main > input {
+    width: 85%;
+    padding: 8.5px 15px;
+    background-color: rgb(83, 83, 83);
+    border-style: none;
+    outline: none;
+    margin: 5px 0px;
+    color: rgba(255, 23, 23, 0.699);
+}
+
+main > input:focus {
+    background-color: rgb(54, 54, 54);
+}
+
+main > button {
+    width: 95%;
+    padding: 10px 0;
+    border-radius: 20px;
+    margin-top: 35px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 23, 23, 0.699);
+    color: rgba(255, 23, 23, 0.699);
+    font-weight: 600;
+}
+
+main > button:hover {
+    width: 98%;
+    padding: 11px 0;
+    transition: .1s linear;
+}
+
+main > .fundo {
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main > .fundo > a {
+    padding: 5px 0;
+    color: rgb(209, 209, 209);
+}
+
+main > .fundo > a:hover {
+    color: rgba(255, 23, 23, 0.699);
+    font-size: 18px;    
+    transition: .1s linear;
+}
