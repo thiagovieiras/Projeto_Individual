@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MAFIA</title>
+   
+    <script src="../js/music.js"></script>
+   
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+   
     <link rel="stylesheet" href="../css/musicas.css">
 </head>
 <body>
@@ -154,7 +158,7 @@
         <div class="musica_lado">
             <nav>
                 <ul>
-                    <a href="../index.html">Inicio <span></span></a>
+                    <a href="../logado.html">Inicio <span></span></a>
                     <a>Minha Biblioteca <span></span></a>
                 </ul>
                 <div class="procura">
@@ -162,13 +166,12 @@
                     <input type="text" placeholder="O que você que ouvir?" id="procurar">
                 </div>
                 <div class="usuario">
-                    <a href="cadastro_login/login.html">Entrar</a>
-                    <a href="cadastro_login/cadastro.html">Cadastre-se</a>
+                    <img src="imagens/foto-perfil.png" alt="usuario" title="Rato (Thiago Vieira)" id="perfil">
                 </div>
             </nav>
             <div class="area_musica">
                 <div class="conteudo">
-                    <img src="../imagens/ttf.png" alt="">
+                    <img src="../assets/imagens/ttf.png" alt="">
                     <h1>Trap</h1>
                     <div class="botoes">
                         <button>Play</button>
@@ -177,164 +180,180 @@
                 </div>
                 <div class="lista_musicas">
                     <div class="container_rec">
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/ttf.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/ttf.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Derek - LUÍSA SONZA</h5>
                                 <i class="bi bi-play-circle-fill"></i>
+                                <audio class="audio-player" src="../musicas/LUÍSA SONZA.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/melhorso.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/melhorso.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>KayBlack - Segredo</h5>
                                 <i class="bi bi-play-circle-fill"></i>
+                                <audio class="audio-player" src="../musicas/Segredo.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/desfilenafavela.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/desfilenafavela.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Danzo feat. Veigh - Desfile na Favela</h5>
                                 <i class="bi bi-play-circle-fill"></i>
+                                <audio class="audio-player" src="../musicas/Danzo, Veigh - Desfile na Favela.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/kennyg.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/kennyg.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Matuê - Kenny G</h5>
                                 <i class="bi bi-play-circle-fill"></i>
+                                <audio class="audio-player" src="../musicas/Matue - kenny G.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/5damanha.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/5damanha.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Djonga - 5 da manhã</h5>
                                 <i class="bi bi-play-circle-fill"></i>
+                                <audio class="audio-player" src="../musicas/Djonga - 5 Da Manhã.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/invisivel2.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/invisivel2.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Veigh feat. Hoaniser, Toledo, Nagali - Invisível pt.2</h5>
                                 <i class="bi bi-play-circle-fill"></i>
+                                <audio class="audio-player" src="../musicas/VEIGH - INVISÍVEL PART 2.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/melhorso.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/melhorso.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>KayBlack feat. Baco Exu do Blues - Melhor Só</h5>
                                 <i class="bi bi-play-circle-fill"></i>
+                                <audio class="audio-player" src="../musicas/Kayblack e Baco Exu do Blues - Melhor só.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/x1.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/x1.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>MC Cabelinho feat. Dallass - X1</h5>
                                 <i class="bi bi-play-circle-fill"></i>
+                                <audio class="audio-player" src="../musicas/MC CABELINHO - X1.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/dialogo.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/dialogo.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Yunk Vino - Diálogo</h5>
                                 <i class="bi bi-play-circle-fill"></i>
+                                <audio class="audio-player" src="../musicas/Yunk Vino - Dialogo.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/ysl.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/ysl.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Yunk Vino feat. Trxntin - Ysl</h5>
                                 <i class="bi bi-play-circle-fill"></i>
+                                <audio class="audio-player" src="../musicas/Yunk Vino - YSL.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/maquinadotempo.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/maquinadotempo.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Matuê - Maquina do Tempo</h5>
                                 <i class="bi bi-play-circle-fill"></i>
+                                <audio class="audio-player" src="../musicas/Matuê - Máquina do Tempo.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/maquinadotempo.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/maquinadotempo.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Matuê - É Sal</h5>
                                 <i class="bi bi-play-circle-fill"></i>
+                                <audio class="audio-player" src="../musicas/Matuê - É Sal.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/60k.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/60k.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Major RD feat. Baratapai - 60K</h5>
                                 <i class="bi bi-play-circle-fill"></i>
+                                <audio class="audio-player" src="../musicas/Major RD - 60K.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/pocoto.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/pocoto.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Alee feat. Hash Produções - Pocotó</h5>
                                 <i class="bi bi-play-circle-fill"></i>
+                                <audio class="audio-player" src="../musicas/Alee - Pocotó.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/issoqueébom.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/issoqueébom.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Alee feat. Hash Produções - Isso Que É Bom</h5>
                                 <i class="bi bi-play-circle-fill"></i>
+                                <audio class="audio-player" src="../musicas/Alee Isso que é bom.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/cardib.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/cardib.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Alee feat. Hash Produções - Cardi B</h5>
                                 <i class="bi bi-play-circle-fill"></i>
+                                <audio class="audio-player" src="../musicas/Alee - Cardi B.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
                         
@@ -351,18 +370,18 @@
                     <div class="onda1"></div>
                     <div class="onda1"></div>
                 </div>
-                <img src="" alt="">
+                <!-- <img src="" alt="" id="capa">
                 <div class="capa_musica">
-                    <h4>titulo da musica</h4>
+                    <h4></h4>
                     <div class="subtitulo">Nome do artista</div>
                 </div>
-                <i class="bi bi-heart"></i>
+                <i class="bi bi-heart"></i> -->
             </div>
-            <!-- <div class="central">
+            <div class="central">
                 <div class="icon">
                     <i class="bi bi-skip-start-fill"></i>
-                     <i class="bi bi-play-circle-fill"></i>
-                    <i class="bi bi-pause-circle-fill"></i>
+                    <i class="bi bi-play-circle-fill"></i>
+                    <!-- <i class="bi bi-pause-circle-fill"></i> -->
                     <i class="bi bi-skip-end-fill"></i>
                 </div>
                 <div class="barra_musica">
@@ -374,12 +393,12 @@
                     </div>
                     <span id="atual_final">0:00</span>
                 </div>
-            </div> -->
+            </div>
             <div class="opcoes_aba">
                 <div class="vol">
-                    <i class="bi bi-volume-off"></i>
-                    <!-- <i class="bi bi-volume-down"></i>
-                    <i class="bi bi-volume-up"></i> -->
+                    <!-- <i class="bi bi-volume-off"></i> -->
+                    <i class="bi bi-volume-down"></i>
+                    <!-- <i class="bi bi-volume-up"></i> -->
                     <input type="range" id="procura" min="0" value="30" max="100">
                     <div class="vol_barra"></div>
                     <div class="ponto" id="vol_ponto"></div>

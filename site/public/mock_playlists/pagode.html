@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MAFIA</title>
+
+    <script src="../js/musics.js"></script>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
     <link rel="stylesheet" href="../css/musicas.css">
+
 </head>
 <body>
     <header>
@@ -154,7 +159,7 @@
         <div class="musica_lado">
             <nav>
                 <ul>
-                    <a href="../index.html">Inicio <span></span></a>
+                    <a href="../logado.html">Inicio <span></span></a>
                     <a>Minha Biblioteca <span></span></a>
                 </ul>
                 <div class="procura">
@@ -162,13 +167,12 @@
                     <input type="text" placeholder="O que você que ouvir?" id="procurar">
                 </div>
                 <div class="usuario">
-                    <a href="cadastro_login/login.html">Entrar</a>
-                    <a href="cadastro_login/cadastro.html">Cadastre-se</a>
+                    <img src="imagens/foto-perfil.png" alt="usuario" title="Rato (Thiago Vieira)" id="perfil">
                 </div>
             </nav>
             <div class="area_musica">
                 <div class="conteudo">
-                    <img src="../imagens/grupo revelação.png" alt="">
+                    <img src="../assets/imagens/grupo revelação.png" alt="">
                     <h1>Pagode</h1>
                     <div class="botoes">
                         <button>Play</button>
@@ -177,164 +181,164 @@
                 </div>
                 <div class="lista_musicas">
                     <div class="container_rec">
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/grupo\ revelação.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/grupo\ revelação.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Grupo Revelação - Deixa Acontecer</h5>
-                                <i class="bi bi-play-circle-fill"></i>
+                                <i class="bi bi-play-circle-fill"></i><audio class="audio-player" src="../musicas/Grupo Revelação - Deixa Acontecer.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/grupomenosemais.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/grupomenosemais.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Grupo Menos É Mais - Recaída</h5>
-                                <i class="bi bi-play-circle-fill"></i>
+                                <i class="bi bi-play-circle-fill"></i><audio class="audio-player" src="../musicas/Recaída.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/velocidadeluz.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/velocidadeluz.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
-                                <h5>Grupo Revelação - Velocidadeda Luz</h5>
-                                <i class="bi bi-play-circle-fill"></i>
+                                <h5>Grupo Revelação - Velocidade da Luz</h5>
+                                <i class="bi bi-play-circle-fill"></i><audio class="audio-player" src="../musicas/Revelação_Velocidade da luz.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/belo.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/belo.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Belo - Pura Adrenalina</h5>
-                                <i class="bi bi-play-circle-fill"></i>
+                                <i class="bi bi-play-circle-fill"></i><audio class="audio-player" src="../musicas/Belo - Pura Adrenalina.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/razaodaminhavida.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/razaodaminhavida.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Belo - Razão da Minha Vida</h5>
-                                <i class="bi bi-play-circle-fill"></i>
+                                <i class="bi bi-play-circle-fill"></i><audio class="audio-player" src="../musicas/Belo -- Razão da minha vida.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/souocarapravc.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/souocarapravc.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Thiaguinho - Sou O Cara Pra Você</h5>
-                                <i class="bi bi-play-circle-fill"></i>
+                                <i class="bi bi-play-circle-fill"></i><audio class="audio-player" src="../musicas/Thiaguinho - Sou o Cara Pra Você.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/fugidinha.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/fugidinha.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Exaltasamba - Tá Vendo Aquela Lua</h5>
-                                <i class="bi bi-play-circle-fill"></i>
+                                <i class="bi bi-play-circle-fill"></i><audio class="audio-player" src="../musicas/Exaltasamba - Tá Vendo Aquela Lua .mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/fugidinha.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/fugidinha.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Exaltasamba - Fugidinha</h5>
-                                <i class="bi bi-play-circle-fill"></i>
+                                <i class="bi bi-play-circle-fill"></i><audio class="audio-player" src="../musicas/Fugidinha.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/maneco.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/maneco.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Zeca Pagodinho - Pagodeiro Fino-Trato</h5>
-                                <i class="bi bi-play-circle-fill"></i>
+                                <i class="bi bi-play-circle-fill"></i><audio class="audio-player" src="../musicas/Zeca Pagodinho - Pagodeiro Fino Trato.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/maneco.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/maneco.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Zeca Pagodinho - Maneco Telecoteco</h5>
-                                <i class="bi bi-play-circle-fill"></i>
+                                <i class="bi bi-play-circle-fill"></i><audio class="audio-player" src="../musicas/Zeca Pagodinho - Maneco Telecoteco.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/lancinho.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/lancinho.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Turma do Pagode - Lancinho</h5>
-                                <i class="bi bi-play-circle-fill"></i>
+                                <i class="bi bi-play-circle-fill"></i><audio class="audio-player" src="../musicas/Turma do Pagode - Lancinho.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/faltavoce.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/faltavoce.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Thiaguinho - Falta Você</h5>
-                                <i class="bi bi-play-circle-fill"></i>
+                                <i class="bi bi-play-circle-fill"></i><audio class="audio-player" src="../musicas/Falta você - Thiaguinho_2.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/camisa10.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/camisa10.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Turma do Pagode - Camisa 10</h5>
-                                <i class="bi bi-play-circle-fill"></i>
+                                <i class="bi bi-play-circle-fill"></i><audio class="audio-player" src="../musicas/Turma do Pagode - Camisa 10.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/sopracontrariar.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/sopracontrariar.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Só Pra Contrariar - Essa Tal Liberdade</h5>
-                                <i class="bi bi-play-circle-fill"></i>
+                                <i class="bi bi-play-circle-fill"></i><audio class="audio-player" src="../musicas/Só Pra Contrariar - Essa Tal Liberdade.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/jeitomlk.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/jeitomlk.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Jeito Moleque - Eu nunca amei assim</h5>
-                                <i class="bi bi-play-circle-fill"></i>
+                                <i class="bi bi-play-circle-fill"></i><audio class="audio-player" src="../musicas/Jeito Moleque - Eu Nunca Amei Assim.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
-                        <div class="rec_musicas">
+                        <div class="rec_musicas" onclick="selecionar(this)">
                             <div class="container_img">
-                                <div class="img" style="    background-image: url(../imagens/dilsinho.png);">
+                                <div class="img" style="    background-image: url(../assets/imagens/dilsinho.png);">
                                 </div>
                             </div>
                             <div class="container_texto">
                                 <h5>Dilsinho - Diferentão Ao Vivo</h5>
-                                <i class="bi bi-play-circle-fill"></i>
+                                <i class="bi bi-play-circle-fill"></i><audio class="audio-player" src="../musicas/Dilsinho - Diferentão.mp3" type="audio/mp3"></audio>
                             </div>
                         </div>
                         
@@ -345,7 +349,7 @@
         </div>
 
         <div class="master_play">
-            <!-- <div class="status_musica">
+            <div class="status_musica">
                 <div class="onda">
                     <div class="onda1"></div>
                     <div class="onda1"></div>
@@ -361,8 +365,8 @@
             <div class="central">
                 <div class="icon">
                     <i class="bi bi-skip-start-fill"></i>
-                     <i class="bi bi-play-circle-fill"></i>
-                    <i class="bi bi-pause-circle-fill"></i>
+                    <i class="bi bi-play-circle-fill"></i>
+                    <!-- <i class="bi bi-pause-circle-fill"></i> -->
                     <i class="bi bi-skip-end-fill"></i>
                 </div>
                 <div class="barra_musica">
@@ -377,14 +381,14 @@
             </div>
             <div class="opcoes_aba">
                 <div class="vol">
-                    <i class="bi bi-volume-off"></i>
-                     <i class="bi bi-volume-down"></i>
-                    <i class="bi bi-volume-up"></i>
+                    <!-- <i class="bi bi-volume-off"></i> -->
+                    <i class="bi bi-volume-down"></i>
+                    <!-- <i class="bi bi-volume-up"></i> -->
                     <input type="range" id="procura" min="0" value="30" max="100">
                     <div class="vol_barra"></div>
                     <div class="ponto" id="vol_ponto"></div>
                 </div>
-            </div> -->
+            </div>
         </div>
     </header>
    

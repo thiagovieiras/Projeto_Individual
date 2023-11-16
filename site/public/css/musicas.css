@@ -2,21 +2,26 @@
 
 @font-face {
     font-family: OG;
-    src: url(../fontes/OldLondon.ttf);
+    src: url(../assets/fontes/OldLondon.ttf);
 }
 @font-face {
     font-family: Tag;
-    src: url(../fontes/aAnotherTag.ttf);
+    src: url(../assets/fontes/aAnotherTag.ttf);
 }
 
 @font-face {
     font-family: Street;
-    src: url(../fontes/DOCALLISME\ ON\ STREET.ttf);
+    src: url(../assets/fontes/DOCALLISME\ ON\ STREET.ttf);
 }
 
 @font-face {
     font-family: Graffiti;
-    src: url(../fontes/GraffitiNewDemoRegular.ttf);
+    src: url(../assets/fontes/GraffitiNewDemoRegular.ttf);
+}
+
+@font-face {
+    font-family: Bomb;
+    src: url(../assets/fontes/Bomb.otf);
 }
 
 
@@ -240,6 +245,11 @@ header > .master_play > .status_musica {
     width: 250px;
 }
 
+header > .master_play > .status_musica > img{
+    border: 3px solid rgba(255, 0, 0, 0.5);
+    border-radius: 2px;
+}
+
 header > .master_play > .status_musica > .onda {
     width: 30px;
     height: 30px;
@@ -302,11 +312,12 @@ header > .master_play > .status_musica > img {
 }
 
 header > .master_play > .status_musica > .capa_musica {
-    width: 130px;
+    width: 80px;
     height: 35px;
     margin-left: 10px;
     color: white;
     line-height: 17px;
+    font-size: 12px;
 }
 
 header > .master_play > .status_musica > .capa_musica > .subtitulo {
@@ -529,35 +540,19 @@ header > .musica_lado > nav > .procura > input {
 }
 
 header > .musica_lado > nav > .usuario {
-    width: 200px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
 }
 
-header > .musica_lado > nav > .usuario > a{
-    text-decoration: none;
-    color: rgba(255, 23, 23, 0.699);
-    transition: .2s linear;
-    font-weight: 600;
-}
-
-header > .musica_lado > nav > .usuario > a:nth-child(1):hover{
-    font-size: 17.5px;
-}
-
-header > .musica_lado > nav > .usuario > a:nth-child(2){
-    text-decoration: none;
-    background-color: rgb(209, 209, 209);
-    padding: 7px;
-    border-radius: 15px;
-    color: rgba(255, 23, 23, 0.699);
-    font-weight: 600;
-}
-
-header > .musica_lado > nav > .usuario > a:nth-child(2):hover{
-    padding: 9px;
-    border-radius: 17px;
+header > .musica_lado > nav > .usuario > img{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 0px rgb(22, 22, 22);
 }
 
 header > .musica_lado > .area_musica {
