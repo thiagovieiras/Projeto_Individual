@@ -1,9 +1,9 @@
-var aquarioModel = require("../models/aquarioModel");
+var perfilModel = require("../models/perfilModel");
 
-function buscarAquariosPorEmpresa(req, res) {
-  var idUsuario = req.params.idUsuario;
+function buscarUsuarioPorPerfil(req, res) {
+  var fkUsuario = req.params.usuarioId;
 
-  aquarioModel.buscarAquariosPorEmpresa(idUsuario).then((resultado) => {
+  perfilModel.buscarUsuarioPorPerfil(fkUsuario).then((resultado) => {
     if (resultado.length > 0) {
       res.status(200).json(resultado);
     } else {
@@ -11,24 +11,25 @@ function buscarAquariosPorEmpresa(req, res) {
     }
   }).catch(function (erro) {
     console.log(erro);
-    console.log("Houve um erro ao buscar os aquarios: ", erro.sqlMessage);
+    console.log("Houve um erro ao buscar os perfil: ", erro.sqlMessage);
     res.status(500).json(erro.sqlMessage);
   });
 }
 
 
 function cadastrar(req, res) {
-  var descricao = req.body.descricao;
-  var idUsuario = req.body.idUsuario;
+  var idPerfilUsuario = req.params.fkUsuario;
+  var fkUsuario = req.params.id;
 
-  if (descricao == undefined) {
+
+  if (idPerfilUsuario == undefined) {
     res.status(400).send("descricao está undefined!");
-  } else if (idUsuario == undefined) {
+  } else if (fkUsuario == undefined) {
     res.status(400).send("idUsuario está undefined!");
   } else {
 
 
-    aquarioModel.cadastrar(descricao, idUsuario)
+    perfilModel.cadastrar(idPerfilUsuario, fkUsuario)
       .then((resultado) => {
         res.status(201).json(resultado);
       }
@@ -44,6 +45,6 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
-  buscarAquariosPorEmpresa,
+  buscarUsuarioPorPerfil,
   cadastrar
 }

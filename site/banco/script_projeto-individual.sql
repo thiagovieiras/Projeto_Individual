@@ -1,3 +1,6 @@
+-- create SCHEMA `bd_projeto-individual` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+-- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root0411';
+
 create database bd_projetoIndividual;
 
 use bd_projetoIndividual;
@@ -15,10 +18,12 @@ SELECT * from cadastro_usuarios;
 
 CREATE TABLE PerfilUsuario(
 	idPerfilUsuario int unique auto_increment,
-  fkUsuario int unique not null, constraint fkUsuario_PerfilUsuario foreign key (fkUsuario) references cadastro_usuarios(id),
-  primary key(idPerfilUsuario, fkUsuario)
+    fkUsuario int unique not null, constraint fkUsuario_PerfilUsuario foreign key (fkUsuario) references cadastro_usuarios(id),
+    primary key(idPerfilUsuario, fkUsuario)
 );
 
+
+SELECT * FROM PerfilUsuario;
 
 CREATE TABLE musicas (
 idMusica int primary key auto_increment, 
@@ -36,6 +41,14 @@ data_acesso TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 SELECT fkMusica, COUNT(fkMusica) AS quantidade
-FROM acesso_às_musicas
-GROUP BY fkMusica
-ORDER BY quantidade DESC;
+	FROM acesso_às_musicas
+		GROUP BY fkMusica
+			ORDER BY quantidade DESC
+				LIMIT 5;
+
+select 
+	nome as NomeMúsica, count(nome) as Repetições
+		from musicas
+			where fkUsuario = ${idUsuario}
+				group by nome
+					order by Repetições desc limit ${cincoEscutadas};

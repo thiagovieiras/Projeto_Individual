@@ -2,21 +2,21 @@
 
 @font-face {
     font-family: OG;
-    src: url(../fontes/OldLondon.ttf);
+    src: url(../assets/fontes/OldLondon.ttf);
 }
 @font-face {
     font-family: Tag;
-    src: url(../fontes/aAnotherTag.ttf);
+    src: url(../assets/fontes/aAnotherTag.ttf);
 }
 
 @font-face {
     font-family: Street;
-    src: url(../fontes/DOCALLISME\ ON\ STREET.ttf);
+    src: url(../assets/fontes/DOCALLISME\ ON\ STREET.ttf);
 }
 
 @font-face {
     font-family: Graffiti;
-    src: url(../fontes/GraffitiNewDemoRegular.ttf);
+    src: url(../assets/fontes/GraffitiNewDemoRegular.ttf);
 }
 
 
@@ -58,7 +58,7 @@ header {
 header > .master_play {
     width: 100%;
     height: 10%;
-    background-color: rgb(55, 55, 55);
+    background-color: rgb(22, 22, 22);
     box-shadow: 8px 3px 8px black;
 }
 
@@ -286,7 +286,7 @@ header > .musica_lado {
     z-index: 2;
     position: relative;
     width: 100%;
-    height: 90%;
+    height: 100%;
     background-color: rgb(22, 22, 22);
 }
 
@@ -517,7 +517,7 @@ header > .musica_lado > .area_musica {
 
 header > .musica_lado > .area_musica > .conteudo {
     width: 90%;
-    height: 30%;
+    height: 8%;
     margin: auto;
     border-bottom: 1px solid white;
     padding: 20px 0;
@@ -526,7 +526,23 @@ header > .musica_lado > .area_musica > .conteudo {
 }
 
 header > .musica_lado > .area_musica > .conteudo > h1 {
-    font-size: 35px;
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+    padding-left: 10px;
+    display: flex;
+    align-items: flex-end;
+}
+
+header > .musica_lado > .area_musica > .conteudo > h1 > span {
+    font-size: 25px;
+    font-weight: 600;
+    color: white;
+    padding-left: 10px;
+}
+
+header > .musica_lado > .area_musica > .conteudo > h1 > p {
+    font-size: 25px;
     font-weight: 600;
     color: white;
     padding-left: 10px;
@@ -574,6 +590,11 @@ header > .musica_lado > .area_musica > .conteudo > .botoes > button:nth-child(2)
     border-radius: 20px;
     background: none;
     color: white;
+}
+
+header > .musica_lado > .area_musica > .grafico {
+    width: 50%;
+    margin: 20px 15px;
 }
 
 header > .musica_lado > .area_musica > .lista_musicas {

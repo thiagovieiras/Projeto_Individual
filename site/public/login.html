@@ -16,6 +16,9 @@
     <header>
         <a href="./index.html"><i class="bi bi-arrow-left"></i></a>
     </header>
+    <div id="cardErro">
+        <div id="div_erros_login"></div>
+    </div>
     <main>
         <div class="logo">MAFIA</div>
         <div class="redes">
@@ -25,7 +28,7 @@
         <p>------------------- OU -------------------</p>
         <input type="email" name="email" id="input_email" placeholder="Nome de usuário ou e-mail" required>
         <input type="password" name="senha" id="input_senha" placeholder="Senha" required>
-        <button>Entrar</button>
+        <button onclick="entrar()">Entrar</button>
         <div class="fundo">
             <a href="cadastro.html">Inscrever-se</a>
             <a href="redefinir.html">Redefinir senha</a>
@@ -39,10 +42,9 @@
 
 
     function entrar() {
-        aguardar();
 
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
@@ -54,10 +56,7 @@
             setInterval(sumirMensagem, 5000)
         }
 
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
-
-        fetch("/usuarios/autenticar", {
+        fetch("/cadastrar/autenticar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -67,8 +66,6 @@
                 senhaServer: senhaVar
             })
         }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-
             if (resposta.ok) {
                 console.log(resposta);
 
@@ -77,13 +74,13 @@
                     console.log(JSON.stringify(json));
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.CPF_USUARIO = json.cpf;
+                    sessionStorage.SENHA_USUARIO = json.senha;
                     sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                    sessionStorage.ACESSO = JSON.stringify(json.acesso)
 
                     setTimeout(function () {
-                        window.location = "./dashboard/cards.html";
-                    }, 1000); // apenas para exibir o loading
+                        window.location = "logado.html";
+                    }, 1000);
 
                 });
 

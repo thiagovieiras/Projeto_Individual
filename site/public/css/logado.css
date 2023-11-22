@@ -657,14 +657,15 @@ header > .musica_lado > .area_musica > .recomendado > .rec_header > h4 {
     font-size: 20px;
 }
 
-header > .musica_lado > .area_musica > .recomendado > .rec_header > h4:hover {
+/* header > .musica_lado > .area_musica > .recomendado > .rec_header > h4:hover {
     text-decoration: underline;
     cursor: pointer;
-}
+} */
 
 header > .musica_lado > .area_musica > .recomendado > .rec_header > span {
     color: rgba(255, 79, 79, 0.429);
     font-size: 14px;
+    display: none;
 }
 
 header > .musica_lado > .area_musica > .recomendado > .rec_header > span:hover {

@@ -93,7 +93,7 @@
 <script>
 
     function exibirAquarios() {
-        JSON.parse(sessionStorage.AQUARIOS).forEach(item => {
+        JSON.parse(sessionStorage.ACESSO).forEach(item => {
             document.getElementById("cardAquarios").innerHTML += `
                     <div class="card">
                         <h1>${item.descricao}</h1>

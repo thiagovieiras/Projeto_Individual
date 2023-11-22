@@ -2,21 +2,21 @@
 
 @font-face {
     font-family: OG;
-    src: url(../fontes/OldLondon.ttf);
+    src: url(../assets/fontes/OldLondon.ttf);
 }
 @font-face {
     font-family: Tag;
-    src: url(../fontes/aAnotherTag.ttf);
+    src: url(../assets/fontes/aAnotherTag.ttf);
 }
 
 @font-face {
     font-family: Street;
-    src: url(../fontes/DOCALLISME\ ON\ STREET.ttf);
+    src: url(../assets/fontes/DOCALLISME\ ON\ STREET.ttf);
 }
 
 @font-face {
     font-family: Graffiti;
-    src: url(../fontes/GraffitiNewDemoRegular.ttf);
+    src: url(../assets/fontes/GraffitiNewDemoRegular.ttf);
 }
 
 

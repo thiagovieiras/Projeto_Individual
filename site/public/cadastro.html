@@ -64,10 +64,6 @@
     var mas = input_mas.checked;
     var fem = input_fem.checked;
 
-    
-    
-    //Recupere o valor da nova input pelo nome do id
-    // Agora vá para o método fetch logo abaixo
     var nomeVar = input_nome.value;
     var emailVar = input_email.value;
     var senhaVar = input_senha.value;
@@ -135,6 +131,7 @@
 
     return false;
   }
+
 
   function listar() {
     fetch("/empresas/listar", {

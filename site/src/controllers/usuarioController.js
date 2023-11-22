@@ -1,5 +1,5 @@
 var usuarioModel = require("../models/usuarioModel");
-var aquarioModel = require("../models/aquarioModel");
+var perfilModel = require("../models/perfilModel");
 
 function autenticar(req, res) {
     var email = req.body.emailServer;
@@ -18,21 +18,20 @@ function autenticar(req, res) {
                     console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
 
                     if (resultadoAutenticar.length == 1) {
-                        console.log(resultadoAutenticar);
+                        console.log(resultadoAutenticar[0]);
 
-                        aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
-                            .then((resultadoAquarios) => {
-                                if (resultadoAquarios.length > 0) {
+                        perfilModel.buscarUsuarioPorPerfil(resultadoAutenticar[0].id)
+                            .then((resultadoPerfil) => {
+                                console.log(resultadoPerfil)
+                                if (resultadoPerfil.length > 0) {
                                     res.json({
                                         id: resultadoAutenticar[0].id,
-                                        email: resultadoAutenticar[0].email,
                                         nome: resultadoAutenticar[0].nome,
-                                        senha: resultadoAutenticar[0].senha,
-                                        genero: resultadoAutenticar[0].genero,
-                                        aquarios: resultadoAquarios
+                                        email: resultadoAutenticar[0].email,
+                                        genero: resultadoAutenticar[0].genero
                                     });
                                 } else {
-                                    res.status(204).json({ aquarios: [] });
+                                    res.status(204).json({ perfil: [] });
                                 }
                             })
                     } else if (resultadoAutenticar.length == 0) {
@@ -51,6 +50,18 @@ function autenticar(req, res) {
     }
 
 }
+
+function pegarId(req, res) {
+
+    
+    var idCliente = req.params.idCliente;
+  
+    usuarioModel.pegarId(id).then((resultado) => {
+      res.status(200).json(resultado);
+    });
+  }
+
+  
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
@@ -84,10 +95,12 @@ function cadastrar(req, res) {
                     res.status(500).json(erro.sqlMessage);
                 }
             );
-    }
+        }
 }
 
 module.exports = {
     autenticar,
+    pegarId,
     cadastrar
 }
+

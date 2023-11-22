@@ -1,16 +1,16 @@
 var database = require("../database/config");
 
-function buscarAquariosPorEmpresa(empresaId) {
+function buscarUsuarioPorPerfil(fkUsuario) {
 
-  instrucaoSql = `select * from aquario a where fk_empresa = ${empresaId}`;
+  instrucaoSql = `select * from PerfilUsuario a where fkUsuario = ${fkUsuario}`;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
 }
 
-function cadastrar(empresaId, descricao) {
+function cadastrar(idPerfilUsuario, fkUsuario) {
   
-  instrucaoSql = `insert into (descricao, fk_empresa) aquario values (${descricao}, ${empresaId})`;
+  instrucaoSql = `insert into PerfilUsuario values (${idPerfilUsuario}, ${fkUsuario})`;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
@@ -18,6 +18,6 @@ function cadastrar(empresaId, descricao) {
 
 
 module.exports = {
-  buscarAquariosPorEmpresa,
+  buscarUsuarioPorPerfil,
   cadastrar
 }
