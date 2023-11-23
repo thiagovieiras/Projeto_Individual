@@ -1,6 +1,9 @@
 var audioAtual = undefined;
 var unPlay;
 
+var nomeArtista = ''
+var nomeMusica = ''
+
 function selecionar(musica) {
 
     
@@ -11,8 +14,8 @@ function selecionar(musica) {
 
     var h5 = musica.querySelector('h5')
 
-    var nomeArtista = h5.children[0]
-    var nomeMusica = h5.children[1]
+    var nomeArtista = h5.children[0].innerHTML
+    var nomeMusica = h5.children[1].innerHTML
 
     console.log(sessionStorage.ID_USUARIO)
 
@@ -73,6 +76,8 @@ function selecionar(musica) {
         play.classList.add('bi-pause-circle-fill');
         onda.classList.add('ativo2');
 
+      if (nomeArtista == undefined || nomeMusica == undefined) console.log("erro aqui no inserir" + nomeArtista, nomeMusica)
+
         inserirMusica(nomeArtista, nomeMusica);
 
 
@@ -123,8 +128,9 @@ function selecionar(musica) {
 
 }
 
-function inserirMusica(nomeArtista, nomeMusica) {
+function inserirMusica(nomeArtista, nomeMusica) { 
 
+  console.log("erro ja no inserir" + nomeArtista, nomeMusica)
     if (
         nomeArtista == "" ||
         nomeMusica == ""
@@ -133,23 +139,16 @@ function inserirMusica(nomeArtista, nomeMusica) {
 
       finalizarAguardar();
       return false;
-    } else {
-      setInterval(sumirMensagem, 5000);
     }
 
-    // Enviando o valor da nova input
-    fetch("/cadastrar/cadastrar", {
+    fetch("/acesso/acesso", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-        generoServer: generoVar
+        nomeArtistaServer: nomeArtista,
+        nomeMusicaServer: nomeMusica,
       }),
     })
       .then(function (resposta) {
@@ -161,10 +160,6 @@ function inserirMusica(nomeArtista, nomeMusica) {
           mensagem_erro.innerHTML =
             "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
-          setTimeout(() => {
-            window.location = "login.html";
-          }, "2000");
-
           limparFormulario();
           finalizarAguardar();
         } else {
@@ -173,7 +168,6 @@ function inserirMusica(nomeArtista, nomeMusica) {
       })
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
       });
 
     return false;

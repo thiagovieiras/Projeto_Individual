@@ -1,4 +1,4 @@
-sessionStorage.ACESSO = JSON.stringify(json.acesso)
+// sessionStorage.ACESSO = JSON.stringify(json.acesso)
 
 function obterdados(idUsuario) {
   fetch(`/acesso/tempo-real/${idUsuario}`)
@@ -18,11 +18,6 @@ function obterdados(idUsuario) {
           console.error(`Erro na obtenção dos dados do Usuario p/ gráfico: ${error.message}`);
       });
 
-}
 
-function atualizacaoPeriodica() {
-  JSON.parse(sessionStorage.ACESSO).forEach(item => {
-      obterdados(item.id)
-  });
-  setTimeout(atualizacaoPeriodica, 5000);
+  setTimeout(obterdados(), 5000);
 }

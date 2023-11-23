@@ -50,17 +50,6 @@ function autenticar(req, res) {
     }
 
 }
-
-function pegarId(req, res) {
-
-    
-    var idCliente = req.params.idCliente;
-  
-    usuarioModel.pegarId(id).then((resultado) => {
-      res.status(200).json(resultado);
-    });
-  }
-
   
 
 function cadastrar(req, res) {
@@ -98,9 +87,9 @@ function cadastrar(req, res) {
         }
 }
 
+
 module.exports = {
     autenticar,
-    pegarId,
     cadastrar
 }
 

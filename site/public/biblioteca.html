@@ -33,7 +33,7 @@
             </nav>
             <div class="area_musica">
                 <div class="conteudo" id="conteudo">
-                    <!-- <h1>Olá <span id="nomeUsuario"></span><p>, aqui estão seus dados</p></h1> -->
+                    <h1>Olá <span id="nomeUsuario"></span><p>, aqui estão seus dados</p></h1>
                 </div>
                 <div class="grafico">
                     <canvas id="grafico"></canvas>
@@ -53,42 +53,29 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 
-    window.onload = exibirDashboardDoUsuario();
+    window.onload = alterarTitulo();
 
-function exibirDashboardDoUsuario() {
-        var dashboard = JSON.parse(sessionStorage.ACESSO);
-        dashboard.forEach(item => {
-            // document.getElementById("btnAquario").innerHTML += `
-            // <button class="btn-chart" onclick="exibirAquario(${item.id})" id="btnAquario${item.id}">${item.descricao}</button>
-            // `
+// function exibirDashboardDoUsuario() {
+//         var dashboard = JSON.parse(sessionStorage.ACESSO);
+//         dashboard.forEach(item => {
+//             document.getElementById("conteudo").innerHTML += `
+//             <h1>Olá <span id="nomeUsuario${item.id}"></span><p>, aqui estão seus dados</p></h1>
+//             `
 
-            document.getElementById("conteudo").innerHTML += `
-            <h1>Olá <span id="nomeUsuario${item.id}"></span><p>, aqui estão seus dados</p></h1>
-                <div id="grafico${item.id}" class="display-none">
-                    <h3 class="tituloGraficos">
-                        <span id="tituloAquario${item.id}">${item.descricao}</span>
-                    </h3>
-                    <div class="graph">
-                        <canvas id="myChartCanvas${item.id}"></canvas>
-                    </div>
-                    <div class="label-captura">
-                        <p id="avisoCaptura${item.id}" style="color: white"></p>
-                    </div>
-                </div>
-            `
+//             obterDadosGrafico(item.id)
+//         });
 
-            obterDadosGrafico(item.id)
-        });
-
-        if (dashboard.length > 0) {
-            exibirDashboard(dashboard[0].id)
-        }
-}
+//         if (dashboard.length > 0) {
+//             exibirDashboard(dashboard[0].id)
+//         }
+// }
 
 function alterarTitulo(idUsuario) {
-        var nomeUsuario = document.getElementById(`nomeUsuario${idUsuario}`)
-        // var descricao = JSON.parse(sessionStorage.AQUARIOS).find(item => item.id == idUsuario).descricao;
-        // nomeUsuario.innerHTML = "Últimas medidas de Temperatura e Umidade do <span style='color: #e6005a'>" + descricao + "</span>"
+
+    var idUsuario = sessionStorage.ID_USUARIO;
+
+    var nomeUsuario = document.getElementById(`nomeUsuario`)
+    nomeUsuario.innerHTML = sessionStorage.NOME_USUARIO
 }
 
 
@@ -122,8 +109,6 @@ function plotarGrafico(resposta, idUsuario) {
 
     console.log('iniciando plotagem do grafico...')
         
-    const ctx = document.getElementById('grafico');
-
     var nome_musica = []
 
     var data = []
@@ -137,17 +122,18 @@ function plotarGrafico(resposta, idUsuario) {
 
 
     let myChart = new Chart(
-        document.getElementById(`grafico${idAquario}`), {
+        document.getElementById(`grafico`), {
         type: 'bar',
         data: {
             labels: nome_musica,
             datasets: [{
                 label: 'Músicas mais acessadas',
-                data: [65, 59, 80, 81],
+                data: data,
                 borderWidth: 1
             }]
         },
     });
+
     setTimeout(() => atualizarGrafico(idUsuario, data, nome_musica, myChart))
 }
 

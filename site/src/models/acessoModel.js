@@ -3,7 +3,6 @@ var database = require("../database/config")
 
 
 
-
 function acesso(idCliente, idMusica) {
     // AQUI ANTES DE REGISTRAR O ACESSO PRECISO RECONHECER A MUSICA E O USUARIO
     var instrucao = `

@@ -1,15 +1,11 @@
 var acessoModel = require("../models/acessoModel");
 
 function acesso(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var idCliente = sessionStorage.ID_USUARIO;
+    var idUsuario = req.params.idUsuario;
+    console.log(idUsuario)
     
-
-    // Faça as validações dos valores
-    
-
         // Passe os valores como parâmetro e vá para o arquivo acessoModel.js
-        acessoModel.acesso(idCliente)
+        acessoModel.acesso(idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -27,7 +23,6 @@ function acesso(req, res) {
     }
 
 function buscarHistoricoEmTempoReal(req, res) {
-
     var idUsuario = req.params.idUsuario;
 
     console.log(`Recuperando medidas em tempo real`);

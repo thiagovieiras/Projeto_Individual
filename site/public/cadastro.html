@@ -10,7 +10,6 @@
 
   <script src="./js/sessao.js"></script>
 
-  <link rel="icon" href="./assets/icon/favicon2.ico" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/cadastro.css">
 </head>
@@ -42,10 +41,10 @@
       <p>Já tem uma conta?</p><a href="login.html">Login</a>
   </div>
 
-  <button class="botao" onclick="cadastrar()">Cadastrar</button>
+  <button class="botao" onclick="cadastrar()" id="botaozinho">Cadastrar</button>
   <div class="redes">
-      <a href="" class="face">Entrar com o Facebook <img src="../imagens/icon_face.png" alt=""></a>
-      <a href="" class="google">Entrar com o Google <img src="../imagens/icon_google.png" alt=""></a>
+      <a href="" class="face">Entrar com o Facebook <img src="./assets/imagens/icon_face.png" alt=""></a>
+      <a href="" class="google">Entrar com o Google <img src="../assets/imagens/icon_google.png" alt=""></a>
   </div>
   </main>
 
@@ -61,6 +60,9 @@
 
   function cadastrar() {
     
+    var botaoCadastrar = document.getElementById("botaozinho"); 
+    botaoCadastrar.disabled = true;
+
     var mas = input_mas.checked;
     var fem = input_fem.checked;
 
@@ -87,7 +89,7 @@
       finalizarAguardar();
       return false;
     } else {
-      setInterval(sumirMensagem, 5000);
+      setInterval(sumirMensagem, 3000);
     }
 
     // Enviando o valor da nova input
@@ -109,10 +111,7 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
-
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+          alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
           setTimeout(() => {
             window.location = "login.html";
@@ -120,8 +119,10 @@
 
           limparFormulario();
           finalizarAguardar();
+          botaoCadastrar.disabled = false;
         } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
+          // throw "Houve um erro ao tentar realizar o cadastro!";
+          alert("Houve um erro ao tentar realizar o cadastro")
         }
       })
       .catch(function (resposta) {
