@@ -1,11 +1,11 @@
 var audioAtual = undefined;
 var unPlay;
 
-var nomeArtista = ''
-var nomeMusica = ''
-
 function selecionar(musica) {
 
+    var idUser = sessionStorage.ID_USUARIO
+
+    console.log(sessionStorage.ID_USUARIO)
     
     var audio = musica.querySelector('.audio-player');
     var onda = document.getElementsByClassName('onda')[0];
@@ -17,7 +17,6 @@ function selecionar(musica) {
     var nomeArtista = h5.children[0].innerHTML
     var nomeMusica = h5.children[1].innerHTML
 
-    console.log(sessionStorage.ID_USUARIO)
 
 
 
@@ -76,9 +75,36 @@ function selecionar(musica) {
         play.classList.add('bi-pause-circle-fill');
         onda.classList.add('ativo2');
 
-      if (nomeArtista == undefined || nomeMusica == undefined) console.log("erro aqui no inserir" + nomeArtista, nomeMusica)
-
-        inserirMusica(nomeArtista, nomeMusica);
+        fetch(`/acesso/inserirMusica/${idUser}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+            body: JSON.stringify({
+            nomeArtistaServer: nomeArtista,
+            nomeMusicaServer: nomeMusica,
+          }),
+        })
+          .then(function (resposta) {
+            console.log("resposta: ", resposta);
+    
+            if (resposta.ok) {
+              cardErro.style.display = "block";
+    
+              mensagem_erro.innerHTML =
+                "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+    
+              limparFormulario();
+              finalizarAguardar();
+            } else {
+              throw "Houve um erro ao tentar realizar o cadastro!";
+            }
+          })
+          .catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+          });
+    
+        return false;
 
 
     } else {
@@ -127,50 +153,5 @@ function selecionar(musica) {
         }, 500)
 
 }
-
-function inserirMusica(nomeArtista, nomeMusica) { 
-
-  console.log("erro ja no inserir" + nomeArtista, nomeMusica)
-    if (
-        nomeArtista == "" ||
-        nomeMusica == ""
-    ) {
-      alert("(Mensagem de erro para todos os campos em branco)");
-
-      finalizarAguardar();
-      return false;
-    }
-
-    fetch("/acesso/acesso", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        nomeArtistaServer: nomeArtista,
-        nomeMusicaServer: nomeMusica,
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-          cardErro.style.display = "block";
-
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-          limparFormulario();
-          finalizarAguardar();
-        } else {
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-      });
-
-    return false;
-  }
 
 

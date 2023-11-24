@@ -1,11 +1,13 @@
 var acessoModel = require("../models/acessoModel");
+var musica = require("../../public/js/music");
 
 function acesso(req, res) {
     var idUsuario = req.params.idUsuario;
-    console.log(idUsuario)
+    var idMusica = req.params.idMusica;
+        console.log(idUsuario, idMusica);
     
         // Passe os valores como parâmetro e vá para o arquivo acessoModel.js
-        acessoModel.acesso(idUsuario)
+        acessoModel.acesso(idUsuario, idMusica)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -21,6 +23,37 @@ function acesso(req, res) {
                 }
             );
     }
+
+
+
+
+function inserirMusica(req, res) {
+    var idUsuario = req.params.idUser;
+    
+    acessoModel.selecionarMusica(idUsuario).then(result => {
+        console.log(result)
+        var idPerfilUsuario = req.params.fkUsuario;
+        var nomeMusica = req.body.nomeMusicaServer;
+        var nomeArtista = req.body.nomeArtistaServer;
+        
+        acessoModel.inserirMusica(idUsuario , idPerfilUsuario, nomeArtista, nomeMusica)
+                .then(
+                    function (resultado) {
+                        res.json(resultado);
+                    }
+                ).catch(
+                    function (erro) {
+                        console.log(erro);
+                        console.log(
+                            "\nHouve um erro ao realizar o cadastro! Erro: ",
+                            erro.sqlMessage
+                        );
+                        res.status(500).json(erro.sqlMessage);
+                    }
+                ); 
+    })
+    
+}
 
 function buscarHistoricoEmTempoReal(req, res) {
     var idUsuario = req.params.idUsuario;
@@ -43,6 +76,7 @@ function buscarHistoricoEmTempoReal(req, res) {
 
 module.exports = {
     acesso,
-    buscarHistoricoEmTempoReal
+    inserirMusica,
+    buscarHistoricoEmTempoReal,
 }
 

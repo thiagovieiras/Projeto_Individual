@@ -19,17 +19,17 @@ function buscarUsuarioPorPerfil(req, res) {
 
 function cadastrar(req, res) {
   var idPerfilUsuario = req.params.fkUsuario;
-  var fkUsuario = req.params.id;
+  var idUsuario = req.params.id;
 
 
   if (idPerfilUsuario == undefined) {
     res.status(400).send("descricao está undefined!");
-  } else if (fkUsuario == undefined) {
+  } else if (idUsuario == undefined) {
     res.status(400).send("idUsuario está undefined!");
   } else {
 
 
-    perfilModel.cadastrar(idPerfilUsuario, fkUsuario)
+    perfilModel.cadastrar(idPerfilUsuario, idUsuario)
       .then((resultado) => {
         res.status(201).json(resultado);
       }

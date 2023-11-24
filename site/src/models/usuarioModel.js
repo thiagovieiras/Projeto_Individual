@@ -17,13 +17,17 @@ function cadastrar(nome, email, senha, genero) {
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao).then(result => {
-        const idUsuario = result.insertId;
-        console.log(`chegou aqui ${idUsuario}, ${genero}`)
-        return inserirPefil(idUsuario, genero)
+        autenticar(email, senha).then(function (id){
+            console.log(id[0].id, genero)
+            return inserirPerfil(id[0].id, genero)
+
+        })
+        // const idUsuario = result.insertId;
+        // console.log(`chegou aqui ${idUsuario}, ${genero}`)
     })
 }
 
-function inserirPefil(idUsuario, genero) {
+function inserirPerfil(idUsuario, genero) {
     var query = `
         insert into PerfilUsuario(fkUsuario, genero) values (${idUsuario}, '${genero}');
     `;

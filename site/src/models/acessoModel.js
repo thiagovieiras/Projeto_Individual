@@ -1,14 +1,33 @@
 var database = require("../database/config")
 
 
-
-
 function acesso(idCliente, idMusica) {
     // AQUI ANTES DE REGISTRAR O ACESSO PRECISO RECONHECER A MUSICA E O USUARIO
     var instrucao = `
         INSERT INTO acesso_às_musicas (fkUsuario, fkMusica) VALUES (${idCliente}, ${idMusica});
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function selecionarMusica(idUsuario) {
+    var instrucao = `
+        SELECT idPerfilUsuario, fkUsuario from PerfilUsuario where fkUsuario = ${idUsuario};
+    `
+    return database.executar(instrucao).then(result => {
+        return selecionarMusica();
+    })
+    .then(id => {
+        console.log(id, genero);
+        return inserirMusica(id, genero);
+    })
+}
+
+function inserirMusica(idUsuario , idPerfilUsuario, nomeArtista, nomeMusica) {
+    var instrucao = `
+        INSERT INTO musicas (fkPerfilUsuario, fkUsuario, nome, artista) VALUES (${idPerfilUsuario}, ${idUsuario}, '${nomeArtista}', '${nomeMusica}');
+    `;
+    console.log("Executando função sql: \n" + instrucao);
     return database.executar(instrucao);
 }
 
@@ -45,5 +64,7 @@ function buscarHistoricoEmTempoReal(idUsuario) {
 
 module.exports = {
     acesso,
-    buscarHistoricoEmTempoReal
+    buscarHistoricoEmTempoReal,
+    inserirMusica,
+    selecionarMusica
 };

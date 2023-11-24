@@ -11,5 +11,9 @@ router.get("/tempo-real/:idUsuario", function (req, res) {
     acessoController.buscarHistoricoEmTempoReal(req, res);
 })
 
+router.post("/inserirMusica/:idUser", function(req, res) {
+    acessoController.inserirMusica(req, res)
+})
+
 
 module.exports = router;
