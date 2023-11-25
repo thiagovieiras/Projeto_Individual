@@ -2,10 +2,6 @@ var audioAtual = undefined;
 var unPlay;
 
 function selecionar(musica) {
-
-    var idUser = sessionStorage.ID_USUARIO
-
-    console.log(sessionStorage.ID_USUARIO)
     
     var audio = musica.querySelector('.audio-player');
     var onda = document.getElementsByClassName('onda')[0];
@@ -75,7 +71,7 @@ function selecionar(musica) {
         play.classList.add('bi-pause-circle-fill');
         onda.classList.add('ativo2');
 
-        fetch(`/acesso/inserirMusica/${idUser}`, {
+        fetch(`/acesso/selecionarMusica`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -83,6 +79,7 @@ function selecionar(musica) {
             body: JSON.stringify({
             nomeArtistaServer: nomeArtista,
             nomeMusicaServer: nomeMusica,
+            idUser: sessionStorage.ID_USUARIO
           }),
         })
           .then(function (resposta) {

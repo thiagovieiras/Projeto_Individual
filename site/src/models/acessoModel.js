@@ -1,8 +1,9 @@
+const { parse } = require("path");
 var database = require("../database/config")
 
 
 function acesso(idCliente, idMusica) {
-    // AQUI ANTES DE REGISTRAR O ACESSO PRECISO RECONHECER A MUSICA E O USUARIO
+
     var instrucao = `
         INSERT INTO acesso_às_musicas (fkUsuario, fkMusica) VALUES (${idCliente}, ${idMusica});
     `;
@@ -11,21 +12,16 @@ function acesso(idCliente, idMusica) {
 }
 
 function selecionarMusica(idUsuario) {
+    
     var instrucao = `
         SELECT idPerfilUsuario, fkUsuario from PerfilUsuario where fkUsuario = ${idUsuario};
     `
-    return database.executar(instrucao).then(result => {
-        return selecionarMusica();
-    })
-    .then(id => {
-        console.log(id, genero);
-        return inserirMusica(id, genero);
-    })
+    return database.executar(instrucao)
 }
 
-function inserirMusica(idUsuario , idPerfilUsuario, nomeArtista, nomeMusica) {
+function inserirMusica(fkUsuario , idPerfilUsuario, nomeArtista, nomeMusica) {
     var instrucao = `
-        INSERT INTO musicas (fkPerfilUsuario, fkUsuario, nome, artista) VALUES (${idPerfilUsuario}, ${idUsuario}, '${nomeArtista}', '${nomeMusica}');
+        INSERT INTO musicas (fkPerfilUsuario, fkUsuario, nome, artista) VALUES (${idPerfilUsuario}, ${fkUsuario}, '${nomeArtista}', '${nomeMusica}');
     `;
     console.log("Executando função sql: \n" + instrucao);
     return database.executar(instrucao);
@@ -68,3 +64,13 @@ module.exports = {
     inserirMusica,
     selecionarMusica
 };
+
+
+
+// .then(result => {
+//     return selecionarMusica();
+// })
+// .then(id => {
+//     console.log(id, genero);
+//     return inserirMusica(id, genero);
+// })

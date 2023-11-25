@@ -11,8 +11,8 @@ router.get("/tempo-real/:idUsuario", function (req, res) {
     acessoController.buscarHistoricoEmTempoReal(req, res);
 })
 
-router.post("/inserirMusica/:idUser", function(req, res) {
-    acessoController.inserirMusica(req, res)
+router.post("/selecionarMusica", function(req, res) {
+    acessoController.selecionarMusica(req, res)
 })
 
 

@@ -27,16 +27,17 @@ function acesso(req, res) {
 
 
 
-function inserirMusica(req, res) {
-    var idUsuario = req.params.idUser;
+function selecionarMusica(req, res) {
+    var idUsuario = req.body.idUser
+
     
     acessoModel.selecionarMusica(idUsuario).then(result => {
-        console.log(result)
-        var idPerfilUsuario = req.params.fkUsuario;
+        var idPerfilUsuario = result[0].idPerfilUsuario;
+        var fkUsuario = result[0].fkUsuario;
         var nomeMusica = req.body.nomeMusicaServer;
         var nomeArtista = req.body.nomeArtistaServer;
-        
-        acessoModel.inserirMusica(idUsuario , idPerfilUsuario, nomeArtista, nomeMusica)
+
+        acessoModel.inserirMusica(fkUsuario , idPerfilUsuario, nomeArtista, nomeMusica)
                 .then(
                     function (resultado) {
                         res.json(resultado);
@@ -76,7 +77,7 @@ function buscarHistoricoEmTempoReal(req, res) {
 
 module.exports = {
     acesso,
-    inserirMusica,
+    selecionarMusica,
     buscarHistoricoEmTempoReal,
 }
 
