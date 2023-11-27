@@ -56,7 +56,7 @@ function buscarTop10(req, res) {
 
 function Top10(req, res) {
 
-    acessoModel.buscarTop10()
+    acessoModel.Top10()
     .then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);

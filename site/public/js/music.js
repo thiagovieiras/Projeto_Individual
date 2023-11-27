@@ -195,8 +195,9 @@ function plotarGrafico(resposta) {
   for (i = 0; i < resposta.length; i++) {
 
     var registro = resposta[i];
+    
+
     listaMusicas[i].querySelector('h5').innerHTML = (registro.NomeMúsica);
-    listaMusicas[i].querySelector('.subtitulo').innerHTML = (registro.NomeArtista);
     listaMusicas[i].querySelector('.detalhe span').innerHTML = (registro.Repetições);
   }
 

@@ -6,7 +6,7 @@
 }
 @font-face {
     font-family: Tag;
-    src: url(../assets/fontes/aAnotherTag.ttf);
+    src: url(../assets/fontes/WaxedtownGTDemo.ttf);
 }
 
 @font-face {
@@ -18,6 +18,7 @@
     font-family: Graffiti;
     src: url(../assets/fontes/GraffitiNewDemoRegular.ttf);
 }
+
 
 
 
@@ -291,7 +292,7 @@ header > .musica_lado {
 }
 
 header > .musica_lado > nav {
-    width: 90%;
+    width: 92%;
     height: 10%;
     margin: auto;
     /* border: 1px solid white; */
@@ -312,8 +313,8 @@ header > .musica_lado > nav > .menu_lado {
 }
 
 header > .musica_lado > nav > .menu_lado > h1 {
-    font-size: 40px;
-    margin: 15px 0px 0px 20px;
+    font-size: 45px;
+    margin: 25px 0px 0px 20px;
     font-weight: 500;
     font-family: Street;
     cursor: default;
@@ -331,17 +332,9 @@ header > .musica_lado > nav > ul > a {
     margin-right: 25px;
     cursor: pointer;
     transition: .3s linear;
+    font-family: Tag;
 }
 
-header > .musica_lado > nav > ul > a:nth-child(2) {
-    position: relative;
-    text-decoration: none;
-    font-size: 13px;
-    color: rgb(255, 255, 255);
-    margin-right: 25px;
-    cursor: pointer;
-    transition: .3s linear;
-}
 
 header > .musica_lado > nav > ul > a:hover {
     color: white;
@@ -401,22 +394,26 @@ header > .musica_lado > nav > .usuario {
 
 header > .musica_lado > nav > .usuario {
     position: relative;
-    width: 30px;
-    height: 30px;
+    width: 50px;
     border-radius: 50%;
     cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: Tag;
+    letter-spacing: 2px;
+    font-size: 12.5px;
 }
 
 header > .musica_lado > nav > .usuario > img{
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     box-shadow: 2px 2px 0px rgb(22, 22, 22);
-    border: 1px solid red;
 }
 
-header > .musica_lado > nav > .usuario > .container_cor {
+/* header > .musica_lado > nav > .usuario > .container_cor {
     display: flex;
     position: relative;
     top: 65px;
@@ -507,7 +504,7 @@ header > .musica_lado > nav > .usuario > .container_cor > ul > li > div > span:n
 
 header > .musica_lado > nav > .usuario > .container_cor > ul > li > div > span:nth-child(4) {    
     background-color: red;
-}
+} */
 
 header > .musica_lado > .area_musica {
     overflow: hidden;

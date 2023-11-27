@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAFIA</title>
+    <title>Playlists | Mafia</title>
 
     <script src="../js/music.js"></script>
 
@@ -17,11 +17,11 @@
         <div class="menu_lado">
             <h1>Mafia</h1>
             <div class="playlist">
-                <h4 class="ativo"><span></span><i class="bi bi-music-note-beamed"></i> Playlist</h4>
-                <h4 class="recomendado"><span></span><i class="bi bi-music-note-beamed"></i> Recomendado</h4>
-                <h4 class="recentemente"><span></span><i class="bi bi-music-note-beamed"></i> Escutado Recentemente</h4>
+                <a href="../logado.html" class="ativo"><span></span><i class="bi bi-music-note-beamed"></i> Lobby</a>
+                <a class="recomendado"><span></span><i class="bi bi-music-note-beamed"></i> Procurar</a>
             </div>
-            <div class="menu_musica">
+            <div class="menu_musica" id="lista_top10">
+                <h4 class="titulo_musica">AS Mais Ouvidas</h4>
                 <li class="musica">
                     <span>01</span>
                     <!-- <i class="bi bi-play-fill"></i> -->
@@ -71,7 +71,7 @@
                     </h5>
                     <div class="detalhe">
                         <!-- <i class="bi bi-heart"></i> -->
-                        <i class="bi bi-heart-fill"></i>
+                        <!-- <i class="bi bi-heart-fill"></i> -->
                         <span>hora</span>
                     </div>
                 </li>
@@ -160,15 +160,15 @@
             <nav>
                 <ul>
                     <a href="../logado.html">Inicio <span></span></a>
-                    <a>Minha Biblioteca <span></span></a>
+                    <a>EXPLORAR <span></span></a>
                 </ul>
                 <div class="procura">
                     <label for="procurar"><i class="bi bi-search"></i></label>
                     <input type="text" placeholder="O que você quer ouvir?" id="procurar">
                 </div>
-                <div class="usuario">
-                    <img src="assets/imagens/fotoperfil.jpg" alt="usuario" id="perfil">
-                </div>
+                <a href="../biblioteca.html" class="usuario">
+                    <img src="../assets/imagens/fotoperfil.jpg" alt="usuario" id="perfil">
+                </a>
             </nav>
             <div class="area_musica">
                 <div class="conteudo">

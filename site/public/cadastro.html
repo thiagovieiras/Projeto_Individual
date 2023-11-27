@@ -77,9 +77,7 @@
 
 
   function cadastrar() {
-    
-    
-    
+     
     var botaoCadastrar = document.getElementById("botaozinho"); 
     botaoCadastrar.disabled = true;
     
@@ -124,6 +122,8 @@
       ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML = "Dada de nascimento invalido";
+      
+      return false;
     } else {
         setInterval(sumirMensagem, 3000);
       }
