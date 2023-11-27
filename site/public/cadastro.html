@@ -79,7 +79,6 @@
   function cadastrar() {
      
     var botaoCadastrar = document.getElementById("botaozinho"); 
-    botaoCadastrar.disabled = true;
     
     var mas = input_mas.checked;
     var fem = input_fem.checked;
@@ -126,6 +125,8 @@
       return false;
     } else {
         setInterval(sumirMensagem, 3000);
+        botaoCadastrar.disabled = true;
+
       }
 
     // Enviando o valor da nova input
