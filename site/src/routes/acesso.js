@@ -7,12 +7,16 @@ router.post("/acesso", function (req, res) {
     acessoController.acesso(req, res);
 })
 
-router.get("/tempo-real/:idUsuario", function (req, res) {
-    acessoController.buscarHistoricoEmTempoReal(req, res);
+router.post("/buscarTop10", function (req, res) {
+    acessoController.buscarTop10(req, res);
 })
 
-router.post("/selecionarMusica", function(req, res) {
-    acessoController.selecionarMusica(req, res)
+router.post("/top10", function(req, res) {
+    acessoController.Top10(req, res);
+})
+
+router.post("/selecionarPerfil", function(req, res) {
+    acessoController.selecionarPerfil(req, res)
 })
 
 

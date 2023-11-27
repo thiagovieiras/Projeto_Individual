@@ -2,16 +2,16 @@ const { parse } = require("path");
 var database = require("../database/config")
 
 
-function acesso(idCliente, idMusica) {
+// function acesso(idCliente, idMusica) {
 
-    var instrucao = `
-        INSERT INTO acesso_às_musicas (fkUsuario, fkMusica) VALUES (${idCliente}, ${idMusica});
-    `;
-    console.log("Executando a instrução SQL: \n" + instrucao);
-    return database.executar(instrucao);
-}
+//     var instrucao = `
+//         INSERT INTO acesso_às_musicas (fkUsuario, fkMusica) VALUES (${idCliente}, ${idMusica});
+//     `;
+//     console.log("Executando a instrução SQL: \n" + instrucao);
+//     return database.executar(instrucao);
+// }
 
-function selecionarMusica(idUsuario) {
+function selecionarPerfil(idUsuario) {
     
     var instrucao = `
         SELECT idPerfilUsuario, fkUsuario from PerfilUsuario where fkUsuario = ${idUsuario};
@@ -19,15 +19,19 @@ function selecionarMusica(idUsuario) {
     return database.executar(instrucao)
 }
 
-function inserirMusica(fkUsuario , idPerfilUsuario, nomeArtista, nomeMusica) {
+
+function inserirMusica(fkUsuario, idPerfilUsuario, nomeArtista, nomeMusica) {
     var instrucao = `
-        INSERT INTO musicas (fkPerfilUsuario, fkUsuario, nome, artista) VALUES (${idPerfilUsuario}, ${fkUsuario}, '${nomeArtista}', '${nomeMusica}');
+        INSERT INTO musicas (fkPerfilUsuario, fkUsuario, nome, artista) VALUES (${idPerfilUsuario}, ${fkUsuario}, "${nomeMusica}", "${nomeArtista}");
     `;
     console.log("Executando função sql: \n" + instrucao);
-    return database.executar(instrucao);
+    return database.executar(instrucao).then(
+        buscarTop10(idPerfilUsuario)
+    );
 }
 
-function buscarHistoricoEmTempoReal(idUsuario) {
+
+function buscarTop10(fkPerfil) {
 
     instrucaoSql = ''
 
@@ -43,11 +47,42 @@ function buscarHistoricoEmTempoReal(idUsuario) {
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `select 
         nome as NomeMúsica, 
-            data_acesso as Data,
-                from acesso_às_musicas
-                    JOIN musicas ON fkMusica = idMusica
-                        where fkUsuario = ${idUsuario} 
-                            order by idAcesso desc limit 10`;
+            count(nome) as Repetições
+                from musicas
+                    where fkPerfilUsuario = ${fkPerfil}
+                        group by nome
+                            order by Repetições desc limit 10;`;
+    } else {
+        console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
+        return
+    }
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+
+function Top10() {
+
+    instrucaoSql = ''
+
+    if (process.env.AMBIENTE_PROCESSO == "producao") {
+        instrucaoSql = `select top 1
+        dht11_temperatura as temperatura, 
+        dht11_umidade as umidade,  
+                        CONVERT(varchar, momento, 108) as momento_grafico, 
+                        fk_aquario 
+                        from acesso_às_musicas where fkUsuario = ${idUsuario} 
+                    order by id desc`;
+
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
+        instrucaoSql = `select 
+        nome as NomeMúsica, 
+            max(artista) as NomeArtista,
+                count(nome) as Repetições
+                    from musicas
+                        group by nome
+                            order by Repetições desc limit 10;`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
@@ -59,16 +94,16 @@ function buscarHistoricoEmTempoReal(idUsuario) {
 
 
 module.exports = {
-    acesso,
-    buscarHistoricoEmTempoReal,
+    buscarTop10,
     inserirMusica,
-    selecionarMusica
+    selecionarPerfil,
+    Top10
 };
 
 
 
 // .then(result => {
-//     return selecionarMusica();
+//     return selecionarPerfil();
 // })
 // .then(id => {
 //     console.log(id, genero);

@@ -71,7 +71,7 @@ function selecionar(musica) {
         play.classList.add('bi-pause-circle-fill');
         onda.classList.add('ativo2');
 
-        fetch(`/acesso/selecionarMusica`, {
+        fetch(`/acesso/selecionarPerfil`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -152,3 +152,52 @@ function selecionar(musica) {
 }
 
 
+
+window.onload = obterDadosGrafico();
+
+function obterDadosGrafico() {
+
+
+  fetch(`/acesso/top10`, {
+      method: "POST",
+      headers: {
+      "Content-Type": "application/json",
+      },
+  })
+  .then(function (resposta) {
+      console.log("resposta: ", resposta);
+
+      if (resposta.ok) {
+          resposta.json().then(function (resposta) {
+              console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+              resposta.reverse();
+
+              plotarGrafico(resposta);
+
+          limparFormulario();
+          finalizarAguardar();
+      });
+      } else {
+          throw "Nenhum dado encontrado ou erro na API";
+      }
+  })
+  .catch(function (error) {
+      console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+  });
+  
+}
+
+
+function plotarGrafico(resposta) {  
+
+  var listaMusicas = document.querySelectorAll(".musica");
+
+  for (i = 0; i < resposta.length; i++) {
+
+    var registro = resposta[i];
+    listaMusicas[i].querySelector('h5').innerHTML = (registro.NomeMúsica);
+    listaMusicas[i].querySelector('.subtitulo').innerHTML = (registro.NomeArtista);
+    listaMusicas[i].querySelector('.detalhe span').innerHTML = (registro.Repetições);
+  }
+
+}

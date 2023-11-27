@@ -166,7 +166,7 @@ header > .menu_lado > .menu_musica {
 
 header > .menu_lado > .menu_musica > li {
     list-style-type: none;
-    padding: 5px 0px 5px 15px;
+    padding: 7px 0px 7px 15px;
     display: flex;
     align-items: center;
     position: relative;

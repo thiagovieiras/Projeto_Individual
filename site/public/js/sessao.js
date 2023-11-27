@@ -33,33 +33,24 @@ function finalizarAguardar(texto) {
 }
 
 
-function tocarmusica() {
-    for(c in listamusicas) {
-        if (c);
-    }
-
-    var audio = new Audio(music);
-
-}
-
-function curtir() {
-    var coracao = document.getElementById('coracao');
-    var listamusicas = document.querySelector('.audio-player');
+// function curtir() {
+//     var coracao = document.getElementById('coracao');
+//     var listamusicas = document.querySelector('.audio-player');
     
     
 
-    for (c in listamusicas) {
-        if (c.src != paused) {
-            if (coracao.classList == 'bi-heart') {
-                coracao.classList.remove('bi-heart');
-                coracao.classList.add('bi-heart-fill');
-                funcaoCurtir();
-            } else {
-                coracao.classList.remove('bi-heart-fill');
-                coracao.classList.add('bi-heart');
-                funcaoDescurtir();
-            }
-        }
-        c++
-    }
-}
+//     for (c in listamusicas) {
+//         if (c.src != paused) {
+//             if (coracao.classList == 'bi-heart') {
+//                 coracao.classList.remove('bi-heart');
+//                 coracao.classList.add('bi-heart-fill');
+//                 funcaoCurtir();
+//             } else {
+//                 coracao.classList.remove('bi-heart-fill');
+//                 coracao.classList.add('bi-heart');
+//                 funcaoDescurtir();
+//             }
+//         }
+//         c++
+//     }
+// }

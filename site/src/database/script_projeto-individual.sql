@@ -1,4 +1,4 @@
-ccreate database bd_projetoIndividual;
+create database bd_projetoIndividual;
 
 use bd_projetoIndividual;
 
@@ -27,22 +27,15 @@ idMusica int primary key auto_increment,
 fkPerfilUsuario int, constraint fkPerfilUsuario_musicas foreign key (fkPerfilUsuario) references PerfilUsuario(idPerfilUsuario),
 fkUsuario int, constraint fkUsuario_musicas foreign key (fkUsuario) references cadastro_usuarios(id),
 nome varchar(60),
-artista varchar(45)
+artista varchar(45),
+Dtacesso TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE acesso_às_musicas (
-idAcesso int unique auto_increment,
-fkMusica int, constraint fkMusica_acesso foreign key (fkMusica) references musicas(idMusica),
-primary key(idAcesso, fkMusica),
-data_acesso TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-fkPerfilUsuario int, constraint fkPerfilUsuario_acesso foreign key (fkPerfilUsuario) references PerfilUsuario(idPerfilUsuario), 
-fkUsuario int, constraint fkUsuario_acesso foreign key (fkUsuario) references cadastro_usuarios(id)
-);
+select * from musicas;
 
-select * from acesso_às_musicas;
 
-SELECT fkMusica, COUNT(fkMusica) AS quantidade
-	FROM acesso_às_musicas
-		GROUP BY fkMusica
+SELECT idMusica, COUNT(idMusica) AS quantidade
+	FROM musicas
+		GROUP BY idMusica
 			ORDER BY quantidade DESC
 				LIMIT 5;

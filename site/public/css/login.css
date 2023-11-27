@@ -60,10 +60,10 @@ main > .logo {
     color: white;
     font-size: 50px;
     text-align: center;
-    margin-bottom: 25px;
+    margin: 55px 0px;
 }
 
-main > .redes {
+/* main > .redes {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -134,7 +134,7 @@ main > .redes > .google > img {
 main > .redes > .google:hover > img {
     transition: .4s ease-out;
     left: 10%;
-}
+} */
 
 main > p {
     color: white;
@@ -177,7 +177,7 @@ main > button:hover {
 }
 
 main > .fundo {
-    margin-top: 100px;
+    margin-top: 50px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -193,3 +193,32 @@ main > .fundo > a:hover {
     font-size: 18px;    
     transition: .1s linear;
 }
+
+
+#div_erros_login {
+    display: none
+  }
+  
+  .alerta_erro{
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .card_erro {
+    display: none;
+    background-color: rgb(68, 68, 68);
+    color: rgb(255, 255, 255);
+    font-weight: 900;
+    width: 230px;
+    position: absolute;
+    border-radius: 4px;
+    border: #e60000 3px solid;
+    padding: 10px;
+    right: 20px;
+    top: 20px;
+  }
+  
+  .card_erro #mensagem_erro{
+    font-weight: 500;
+    font-size: 20px;
+  }

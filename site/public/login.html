@@ -18,25 +18,37 @@
         <a href="./index.html"><i class="bi bi-arrow-left"></i></a>
     </header>
 
-
-    <div id="cardErro">
-        <div id="div_erros_login"></div>
-    </div>
     <main>
+
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
+
         <div class="logo">MAFIA</div>
-        <div class="redes">
+        
+        <!-- <div class="redes">
             <a href="" class="face">Entrar com o Facebook <img src="./assets/imagens/icon_face.png" alt=""></a>
             <a href="" class="google">Entrar com o Google <img src="./assets/imagens/icon_google.png" alt=""></a>
         </div>
-        <p>------------------- OU -------------------</p>
+        
+        <p>------------------- OU -------------------</p> -->
+        
         <input type="email" name="email" id="input_email" placeholder="Nome de usuário ou e-mail" required>
         <input type="password" name="senha" id="input_senha" placeholder="Senha" required>
+        
         <button onclick="entrar()">Entrar</button>
+        
         <div class="fundo">
             <a href="cadastro.html">Inscrever-se</a>
             <a href="redefinir.html">Redefinir senha</a>
         </div>
+
+        <div id="div_erros_login"></div>
+
     </main>
+
 </body>
 
 </html>
@@ -51,7 +63,7 @@
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            mensagem_erro.innerHTML = "Por favor revise o campo, algum campo não preenchido";
             finalizarAguardar();
             return false;
         }
@@ -70,12 +82,13 @@
             })
         }).then(function (resposta) {
             if (resposta.ok) {
+                console.log(resposta)
 
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
                     sessionStorage.ID_USUARIO = json.id;
-                    // sessionStorage.ACESSO = JSON.stringify(json.acesso)
+                    sessionStorage.NOME_USUARIO = json.nome;
 
                     setTimeout(function () {
                         window.location = "logado.html";

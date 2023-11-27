@@ -7,7 +7,7 @@
     <title>MAFIA</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/biblioteca.css">
-    <script src="biblioteca.js"></script>
+    <!-- <script src="biblioteca.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
@@ -38,6 +38,9 @@
                 <div class="grafico">
                     <canvas id="grafico"></canvas>
                 </div>
+                <div class="artista">
+                    <canvas id="artista"></canvas>
+                </div>
                 <div class="historico">
                     <canvas id="historico"></canvas>
                 </div>
@@ -53,60 +56,61 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 
-    window.onload = alterarTitulo();
+    let proximaAtualizacao;
 
-// function exibirDashboardDoUsuario() {
-//         var dashboard = JSON.parse(sessionStorage.ACESSO);
-//         dashboard.forEach(item => {
-//             document.getElementById("conteudo").innerHTML += `
-//             <h1>Olá <span id="nomeUsuario${item.id}"></span><p>, aqui estão seus dados</p></h1>
-//             `
+    window.onload = obterDadosGrafico();
 
-//             obterDadosGrafico(item.id)
-//         });
+function alterarTitulo() {
 
-//         if (dashboard.length > 0) {
-//             exibirDashboard(dashboard[0].id)
-//         }
-// }
-
-function alterarTitulo(idUsuario) {
-
-    var idUsuario = sessionStorage.ID_USUARIO;
-    console.log(idUsuario);
+    // var idUsuario = sessionStorage.ID_USUARIO;
 
     var nomeUsuario = document.getElementById(`nomeUsuario`)
     nomeUsuario.innerHTML = sessionStorage.NOME_USUARIO
 }
 
 
-function obterDadosGrafico(idUsuario) {
+function obterDadosGrafico() {
 
-        alterarTitulo(idUsuario)
+    alterarTitulo();
 
-        if (proximaAtualizacao != undefined) {
-            clearTimeout(proximaAtualizacao);
+    if (proximaAtualizacao != undefined) {
+        clearTimeout(proximaAtualizacao);
+    }
+
+    fetch(`/acesso/buscarTop10`, {
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+        idUser: sessionStorage.ID_USUARIO
+        }),
+    })
+    .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            resposta.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                resposta.reverse();
+
+                plotarGrafico(resposta);
+
+            limparFormulario();
+            finalizarAguardar();
+        });
+        } else {
+            throw "Nenhum dado encontrado ou erro na API";
         }
-
-        fetch(`/grafico/ultimas/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                    resposta.reverse();
-
-                    plotarGrafico(resposta, idUsuario);
-
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
+    })
+    .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    });
+    
 }
 
-function plotarGrafico(resposta, idUsuario) {
+
+function plotarGrafico(resposta) {
 
     console.log('iniciando plotagem do grafico...')
         
@@ -135,18 +139,17 @@ function plotarGrafico(resposta, idUsuario) {
         },
     });
 
-    setTimeout(() => atualizarGrafico(idUsuario, data, nome_musica, myChart))
+    setTimeout(() => atualizarGrafico(data, nome_musica, myChart))
 }
 
-function atualizarGrafico(idUsuario, data, nome_musica, myChart) {
+function atualizarGrafico(data, nome_musica, myChart) {
 
 
-    fetch(`/acesso/tempo-real/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+    fetch(`/acesso/buscarTop10`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (novoRegistro) {
 
-                    obterdados(idUsuario);
-                    // alertar(novoRegistro, idAquario);
+                    obterdados();
                     console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
                     console.log(`Dados atuais do gráfico:`);
                     console.log(data, nome_musica);
@@ -173,12 +176,12 @@ function atualizarGrafico(idUsuario, data, nome_musica, myChart) {
                     }
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, data, nome_musica, myChart), 2000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(data, nome_musica, myChart), 2000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, data, nome_musica, myChart), 2000);
+                proximaAtualizacao = setTimeout(() => atualizarGrafico(data, nome_musica, myChart), 2000);
             }
         })
             .catch(function (error) {

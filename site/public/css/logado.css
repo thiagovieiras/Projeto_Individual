@@ -19,6 +19,16 @@
     src: url(../assets/fontes/GraffitiNewDemoRegular.ttf);
 }
 
+@font-face {
+    font-family: Letter;
+    src: url(../assets/fontes/DonGraffiti.otf);
+}
+
+@font-face {
+    font-family: Bomb;
+    src: url(../assets/fontes/Bomb.otf);
+}
+
 
 
 ::-webkit-scrollbar {
@@ -36,6 +46,7 @@
 
 a {
     text-decoration: none;
+    color: inherit;
 }
 
 body {
@@ -62,23 +73,16 @@ header {
 header > .menu_lado {
     position: relative;
     width: 25%;
-    height: 90%;
+    height: 100%;
     /* border: 1px solid rgb(255, 75, 75); */
     background-color: rgb(22, 22, 22);
     /* box-shadow: 5px 0px 2px rgb(255, 75, 75); */
     color: white;
 }
 
-header > .master_play {
-    width: 100%;
-    height: 10%;
-    background-color: rgb(55, 55, 55);
-    box-shadow: 8px 3px 8px black;
-}
-
 header > .menu_lado > h1 {
-    font-size: 30px;
-    margin: 15px 0px 0px 20px;
+    font-size: 45px;
+    margin: 20px 0px 0px 25px;
     font-weight: 500;
     font-family: Street;
 }
@@ -87,7 +91,7 @@ header > .menu_lado > .playlist {
     margin: 40px 0px 0px 20px;
 }
 
-header > .menu_lado > .playlist > h4 {
+header > .menu_lado > .playlist > a {
     font-size: 14px;
     font-weight: 400;
     padding-bottom: 10px;
@@ -96,18 +100,21 @@ header > .menu_lado > .playlist > h4 {
     display: flex;
     align-items: center;
     transition: .2s linear;
+    margin-bottom: 5px;
+    font-family: Tag;
+    letter-spacing: 2px;
 }
 
-header > .menu_lado > .playlist > h4:hover {
+header > .menu_lado > .playlist > a:hover {
     color: white;
 }
 
-header > .menu_lado > .playlist > h4 > span {
+header > .menu_lado > .playlist > a > span {
     position: relative;
     margin-right: 25px;
 }
 
-header > .menu_lado > .playlist > h4 > span::before {
+header > .menu_lado > .playlist > a > span::before {
     content: '';
     position: absolute;
     width: 4px;
@@ -118,11 +125,11 @@ header > .menu_lado > .playlist > h4 > span::before {
     transition: .2s linear;
 }
 
-header > .menu_lado > .playlist > h4:hover > span::before {
+header > .menu_lado > .playlist > a:hover > span::before {
     border: 2px solid white;
 }
 
-header > .menu_lado > .playlist > h4 > .bi {
+header > .menu_lado > .playlist > a > .bi {
     display: none;
 }
 
@@ -150,7 +157,7 @@ header > .menu_lado > .playlist > .ativo > .bi {
 
 header > .menu_lado > .menu_musica {
     width: 94%;
-    height: 350px;
+    height: 65%;
     /* border: 1px solid white; */
     margin-top: 35px;
     padding: 3px;
@@ -159,9 +166,20 @@ header > .menu_lado > .menu_musica {
     justify-content: space-around;
 }
 
+header > .menu_lado > .menu_musica > h4 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-family: Tag;
+    letter-spacing: 4px;
+    color: red;
+}
+
+
 header > .menu_lado > .menu_musica > li {
     list-style-type: none;
-    padding: 5px 0px 5px 15px;
+    padding: 7px 0px 7px 15px;
     display: flex;
     align-items: center;
     position: relative;
@@ -173,7 +191,7 @@ header > .menu_lado > .menu_musica > li:hover {
 }
 
 header > .menu_lado > .menu_musica > li > span {
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 600;
     color: red;
 }
@@ -183,9 +201,9 @@ header > .menu_lado > .menu_musica > li > .bi {
 }
 
 
-header > .menu_lado > .menu_musica > li:hover > span {
+/* header > .menu_lado > .menu_musica > li:hover > span {
     display: none;    
-}
+} */
 
 header > .menu_lado > .menu_musica > li:hover > .bi {
     font-size: 12px;
@@ -202,12 +220,12 @@ header > .menu_lado > .menu_musica > li > img {
 }
 
 header > .menu_lado > .menu_musica > li > h5 {
-    font-size: 11px;
+    font-size: 16px;
     margin-left: 10px;
 }
 
 header > .menu_lado > .menu_musica > li > h5 > .subtitulo {
-    font-size: 5px;
+    font-size: 11px;
     color: gray;
 }
 
@@ -226,13 +244,18 @@ header > .menu_lado > .menu_musica > li > .detalhe > .bi:hover {
 
 header > .menu_lado > .menu_musica > li > .detalhe {
     position: absolute;
-    font-size: 10px;
+    font-size: 12px;
     right: 15px;
     top: 35%;
 }
 
 header > .master_play {
-    display: flex;
+    width: 100%;
+    height: 10%;
+    background-color: rgb(55, 55, 55);
+    box-shadow: 8px 3px 8px black;
+
+    display: none;
     align-items: center;
     justify-content: space-between;
     padding: 0px 20px;
@@ -455,12 +478,12 @@ header > .musica_lado {
     z-index: 2;
     position: relative;
     width: 75%;
-    height: 90%;
+    height: 100%;
     background-color: rgb(22, 22, 22);
 }
 
 header > .musica_lado > nav {
-    width: 90%;
+    width: 92%;
     height: 10%;
     margin: auto;
     /* border: 1px solid white; */
@@ -473,7 +496,7 @@ header > .musica_lado > nav > ul {
     display: flex;
 }
 
-header > .musica_lado > nav > ul > a {
+header > .musica_lado > nav > ul > li {
     position: relative;
     list-style-type: none;
     font-size: 13px;
@@ -481,17 +504,19 @@ header > .musica_lado > nav > ul > a {
     margin-right: 25px;
     cursor: pointer;
     transition: .3s linear;
+    font-family: Tag;
+    letter-spacing: 2px;
 }
 
-header > .musica_lado > nav > ul > a:hover {
+header > .musica_lado > nav > ul > li:hover {
     color: white;
 }
 
-header > .musica_lado > nav > ul > a:nth-child(1) {
+header > .musica_lado > nav > ul > li:nth-child(1) {
     color: white;
 }
 
-header > .musica_lado > nav > ul > a > span {
+header > .musica_lado > nav > ul > li > span {
     position: absolute;
     width: 100%;
     height: 2.5px;
@@ -503,7 +528,7 @@ header > .musica_lado > nav > ul > a > span {
 
 header > .musica_lado > nav > .procura {
     position: relative;
-    width: 40%;
+    width: 55%;
     padding: 1px 0px;
     border-radius: 20px;
     color: white;
@@ -571,33 +596,46 @@ header > .musica_lado > .area_musica > .conteudo {
 header > .musica_lado > .area_musica > .conteudo::before {
     content: '';
     width: 100%;
-    height: 350px;
-    background: url('../assets/imagens/banner.png');
+    height: 300px;
+    background: url('../assets/imagens/derxan.png');
     background-size: cover;
     background-position: center;
     float: right;
     position: relative;
-    top: 160px;
+    border-radius: 30px;
+    top: 170px;
     z-index: -9999;
 }
 
-header > .musica_lado > .area_musica > .conteudo > h1 {
-    font-size: 25px;
-    font-weight: 600;
-    color: white;
-    padding-left: 10px;
+header > .musica_lado > .area_musica > .conteudo > .titulo {
+    position: relative;
+    top: 40px;
 }
 
-header > .musica_lado > .area_musica > .conteudo > p {
-    font-size: 20px;
-    font-weight: 400;
-    color: rgb(209, 209, 209);
-    margin: 10px 5px;
-    padding-left: 20px;
+header > .musica_lado > .area_musica > .conteudo > .titulo > h1 {
+    margin-top: 40px;
+    font-size: 27px;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    padding-left: 15px;
+    font-family: Tag;
+    -webkit-text-stroke: .5px rgb(0, 0, 0);
+}
 
+header > .musica_lado > .area_musica > .conteudo > .titulo > p {
+    font-size: 18px;
+    font-weight: 400;
+    color: rgb(255, 170, 170);
+    margin: 5px 5px 10px 5px;
+    padding-left: 15px;
+    font-family: Tag;
+    letter-spacing: 2px;
+    -webkit-text-stroke: 1px rgb(0, 0, 0);
 }
 
 header > .musica_lado > .area_musica > .conteudo > .botoes {
+    position: relative;
+    top: 40px;
     margin-top: 15px;
     margin-left: 20px;
 
@@ -619,10 +657,10 @@ header > .musica_lado > .area_musica > .conteudo > .botoes > button:hover {
     border: 2px solid rgba(255, 23, 23, 0.699);
     border-radius: 20px;
     background: none;
-    color: rgb(209, 209, 209);
+    color: rgb(0, 0, 0);
 }
 
-header > .musica_lado > .area_musica > .conteudo > .botoes > button:nth-child(2) {
+/* header > .musica_lado > .area_musica > .conteudo > .botoes > button:nth-child(2) {
     border: 2px solid rgba(255, 23, 23, 0.699);
     border-radius: 20px;
     background: none;
@@ -634,7 +672,7 @@ header > .musica_lado > .area_musica > .conteudo > .botoes > button:nth-child(2)
     border-radius: 20px;
     background: none;
     color: white;
-}
+} */
 
 header > .musica_lado > .area_musica > .recomendado {
     width: 90%;
