@@ -13,8 +13,6 @@ CREATE TABLE cadastro_usuarios (
   );
 
 
-SELECT * from cadastro_usuarios;
-
 CREATE TABLE PerfilUsuario(
 	idPerfilUsuario int unique auto_increment,
     fkUsuario int unique not null, constraint fkUsuario_PerfilUsuario foreign key (fkUsuario) references cadastro_usuarios(id),
@@ -22,8 +20,6 @@ CREATE TABLE PerfilUsuario(
 	genero CHAR(3) NOT NULL, constraint chkgenero check (genero in ('mas', 'fem'))
 );
 
-
-SELECT * FROM PerfilUsuario;
 
 CREATE TABLE musicas (
 idMusica int primary key auto_increment, 
@@ -33,8 +29,6 @@ nome varchar(60),
 artista varchar(45),
 Dtacesso TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
-select * from musicas;
 
 
 SELECT idMusica, COUNT(idMusica) AS quantidade
@@ -59,9 +53,19 @@ select artista as NomeArtista,
 					order by Repetições desc limit 10;
                     
 select 
-        nome as NomeMúsica, 
-            max(artista) as NomeArtista,
-                count(nome) as Repetições
-                    from musicas
-						group by nome
-							order by Repetições desc limit 10;
+	nome as NomeMúsica, 
+		artista as NomeArtista,
+			count(nome) as Repetições
+				from musicas
+					group by nome, artista
+						order by Repetições desc limit 10;
+						
+
+SELECT * from cadastro_usuarios;
+
+select * from musicas;
+
+SELECT * FROM PerfilUsuario;
+
+select * from musicas
+	join perfilUsuario on fkPerfilUsuario = idPerfilUsuario;

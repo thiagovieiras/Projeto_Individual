@@ -229,7 +229,7 @@ header > .menu_lado > .menu_musica > li > img {
     margin-left: 15px;
 }
 
-header > .menu_lado > .menu_musica > li > h5 {
+header > .menu_lado > .menu_musica > li > h5 > #titulo {
     font-size: 16px;
     margin-left: 10px;
 }
@@ -237,6 +237,8 @@ header > .menu_lado > .menu_musica > li > h5 {
 header > .menu_lado > .menu_musica > li > h5 > .subtitulo {
     font-size: 11px;
     color: gray;
+    margin-left: 15px;
+
 }
 
 header > .menu_lado > .menu_musica > li > .detalhe > .bi {
@@ -504,7 +506,7 @@ header > .master_play > .opcoes_aba > .vol > .vol_barra {
     height: 100%;
     border-radius: 7px;
     top: 0;
-    width: 100%;
+    width: 30%;
 }
 
 header > .master_play > .opcoes_aba > .vol > .vol_barra::before {
@@ -513,7 +515,7 @@ header > .master_play > .opcoes_aba > .vol > .vol_barra::before {
     background: red;
     display: block;
     height: 2px;
-    width: 30%;
+    width: 100%;
     border-radius: 7px;
     top: 0;
 }

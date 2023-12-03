@@ -83,7 +83,7 @@ function Top10() {
                 count(nome) as Repetições
                     from musicas
                         group by nome, artista
-                            order by Repetições limit 10;`;
+                            order by Repetições desc limit 10;`;
     } else {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return

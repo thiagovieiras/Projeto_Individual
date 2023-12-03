@@ -13,10 +13,8 @@ var acessoRouter = require("./src/routes/acesso")
 
 var indexRouter = require("./src/routes/index");
 var cadastroRouter = require("./src/routes/cadastrar");
-var avisosRouter = require("./src/routes/avisos");
 var graficoRouter = require("./src/routes/grafico");
 var perfilRouter = require("./src/routes/perfil");
-// var empresasRouter = require("./src/routes/empresas");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -26,11 +24,9 @@ app.use(cors());
 
 app.use("/", indexRouter);
 app.use("/cadastrar", cadastroRouter);
-app.use("/avisos", avisosRouter);
 app.use("/grafico", graficoRouter);
 app.use("/perfil", perfilRouter);
 app.use("/acesso", acessoRouter);
-// app.use("/empresas", empresasRouter);
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n

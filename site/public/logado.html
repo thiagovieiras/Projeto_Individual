@@ -28,7 +28,7 @@
                     <!-- <i class="bi bi-play-fill"></i>
                     <img src="qualquer musica" alt=""> -->
                     <h5>
-                        titulo da musica
+                        <span id="titulo">titulo da musica</span>
                         <div class="subtitulo">Nome do artista</div>
                     </h5>
                     <div class="detalhe">
@@ -41,7 +41,7 @@
                     <!-- <i class="bi bi-play-fill"></i>
                     <img src="qualquer musica" alt=""> -->
                     <h5>
-                        titulo da musica
+                        <span id="titulo">titulo da musica</span>
                         <div class="subtitulo">Nome do artista</div>
                     </h5>
                     <div class="detalhe">
@@ -54,7 +54,7 @@
                     <!-- <i class="bi bi-play-fill"></i>
                     <img src="qualquer musica" alt=""> -->
                     <h5>
-                        titulo da musica
+                        <span id="titulo">titulo da musica</span>
                         <div class="subtitulo">Nome do artista</div>
                     </h5>
                     <div class="detalhe">
@@ -67,7 +67,7 @@
                     <!-- <i class="bi bi-play-fill"></i>
                     <img src="qualquer musica" alt=""> -->
                     <h5>
-                        titulo da musica
+                        <span id="titulo">titulo da musica</span>
                         <div class="subtitulo">Nome do artista</div>
                     </h5>
                     <div class="detalhe">
@@ -81,7 +81,7 @@
                     <!-- <i class="bi bi-play-fill"></i>
                     <img src="qualquer musica" alt=""> -->
                     <h5>
-                        titulo da musica
+                        <span id="titulo">titulo da musica</span>
                         <div class="subtitulo">Nome do artista</div>
                     </h5>
                     <div class="detalhe">
@@ -94,7 +94,7 @@
                     <!-- <i class="bi bi-play-fill"></i>
                     <img src="qualquer musica" alt=""> -->
                     <h5>
-                        titulo da musica
+                        <span id="titulo">titulo da musica</span>
                         <div class="subtitulo">Nome do artista</div>
                     </h5>
                     <div class="detalhe">
@@ -107,7 +107,7 @@
                     <!-- <i class="bi bi-play-fill"></i>
                     <img src="qualquer musica" alt=""> -->
                     <h5>
-                        titulo da musica
+                        <span id="titulo">titulo da musica</span>
                         <div class="subtitulo">Nome do artista</div>
                     </h5>
                     <div class="detalhe">
@@ -120,7 +120,7 @@
                     <!-- <i class="bi bi-play-fill"></i>
                     <img src="qualquer musica" alt=""> -->
                     <h5>
-                        titulo da musica
+                        <span id="titulo">titulo da musica</span>
                         <div class="subtitulo">Nome do artista</div>
                     </h5>
                     <div class="detalhe">
@@ -133,7 +133,7 @@
                     <!-- <i class="bi bi-play-fill"></i>
                     <img src="qualquer musica" alt=""> -->
                     <h5>
-                        titulo da musica
+                        <span id="titulo">titulo da musica</span>
                         <div class="subtitulo">Nome do artista</div>
                     </h5>
                     <div class="detalhe">
@@ -146,7 +146,7 @@
                     <!-- <i class="bi bi-play-fill"></i>
                     <img src="qualquer musica" alt=""> -->
                     <h5>
-                        titulo da musica
+                        <span id="titulo">titulo da musica</span>
                         <div class="subtitulo">Nome do artista</div>
                     </h5>
                     <div class="detalhe">
@@ -160,8 +160,8 @@
         <div class="musica_lado">
             <nav>
                 <ul>
-                    <li>Inicio <span></span></li>
-                    <li><a href="login.html">EXPLORAR</a> <span></span></li>
+                    <li><a href="logado.html">Inicio</a> <span></span></li>
+                    <li><a href="explorar.html">EXPLORAR</a> <span></span></li>
                 </ul>
                 <div class="procura">
                     <label for="procurar"><i class="bi bi-search"></i></label>
@@ -178,7 +178,8 @@
                         <p>Derxan</p>
                     </div>
                     <div class="botoes">
-                        <button>Play</button>
+                        <button onclick="tocar(this)">Play</button>
+                        <audio class="audio-player" src="../musicas/Derxan - EU MERMO.mp3" type="audio/mp3"></audio>
                         <!-- <button>Seguir</button> -->
                     </div>
                 </div>
@@ -355,7 +356,7 @@
                     <i class="bi bi-volume-off"></i>
                     <!-- <i class="bi bi-volume-down"></i>
                     <i class="bi bi-volume-up"></i> -->
-                    <input type="range" id="procura" min="0" value="30" max="100">
+                    <input type="range" id="volume" min="0" value="30" max="100">
                     <div class="vol_barra"></div>
                     <div class="ponto" id="vol_ponto"></div>
                 </div>
@@ -365,3 +366,15 @@
    
 </body>
 </html>
+
+<script>
+
+function tocar(atual) {
+    var audio = atual.nextElementSibling;
+
+    if(audio.paused) {
+        audio.play();
+    } else audio.pause();
+}
+
+</script>
