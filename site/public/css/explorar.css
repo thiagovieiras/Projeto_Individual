@@ -1,0 +1,214 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: OG;
+    src: url(../assets/fontes/OldLondon.ttf);
+}
+@font-face {
+    font-family: Tag;
+    src: url(../assets/fontes/WaxedtownGTDemo.ttf);
+}
+
+@font-face {
+    font-family: Street;
+    src: url(../assets/fontes/DOCALLISME\ ON\ STREET.ttf);
+}
+
+@font-face {
+    font-family: Graffiti;
+    src: url(../assets/fontes/GraffitiNewDemoRegular.ttf);
+}
+
+
+
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 23, 23, 0.699);
+} 
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+header {
+    width: 98%;
+    height: 98%;
+    /* border: 1px solid white; */
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    position: fixed;
+}
+
+header > .musica_lado {
+    z-index: 2;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(22, 22, 22);
+}
+
+header > .musica_lado > nav {
+    width: 92%;
+    height: 10%;
+    margin: auto;
+    /* border: 1px solid white; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+header > .musica_lado > nav > .menu_lado {
+    position: relative;
+    right: 4%;
+    width: 25%;
+    /* border: 1px solid rgb(255, 75, 75); */
+    background-color: rgb(22, 22, 22);
+    /* box-shadow: 5px 0px 2px rgb(255, 75, 75); */
+    color: white;
+}
+
+header > .musica_lado > nav > .menu_lado > h1 {
+    font-size: 45px;
+    margin: 25px 0px 0px 20px;
+    font-weight: 500;
+    font-family: Street;
+    cursor: default;
+}
+
+header > .musica_lado > nav > ul {
+    display: flex;
+}
+
+header > .musica_lado > nav > ul > a {
+    position: relative;
+    text-decoration: none;
+    font-size: 13px;
+    color: rgb(142, 142, 142);
+    margin-right: 25px;
+    cursor: pointer;
+    transition: .3s linear;
+    font-family: Tag;
+    letter-spacing: 2px;
+}
+
+header > .musica_lado > nav > ul > a:nth-child(2) {
+    color: white;
+}
+
+header > .musica_lado > nav > ul > a:hover {
+    color: white;
+}
+
+header > .musica_lado > nav > ul > a > span {
+    position: absolute;
+    width: 100%;
+    height: 2.5px;
+    background: red;
+    bottom: -5px;
+    left: 0;
+    border-radius: 20px;
+}
+
+header > .musica_lado > nav > .procura {
+    position: relative;
+    width: 50%;
+    padding: 1px 0px;
+    border-radius: 20px;
+    color: white;
+}
+
+
+header > .musica_lado > nav > .procura::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background: rgba(255, 79, 79, 0.429);
+    backdrop-filter: blur(5px);
+    z-index: -1;
+}
+
+header > .musica_lado > nav > .procura > label > .bi {
+    font-size: 13px;
+    padding: 3px 0px 0px 10px;
+    cursor: text;
+}
+
+header > .musica_lado > nav > .procura > input {
+    background: none;
+    outline: none;
+    border: none;
+    color: white;
+    font-size: 12px;
+    width: 92%;
+}
+
+header > .musica_lado > nav > .usuario {
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header > .musica_lado > nav > .usuario {
+    position: relative;
+    width: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: Tag;
+    letter-spacing: 2px;
+    font-size: 12.5px;
+}
+
+header > .musica_lado > nav > .usuario > img{
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 0px rgb(22, 22, 22);
+}
+
+header > .musica_lado > main{
+    width: 100%;
+    height: calc(100% - 75px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header > .musica_lado > main > span{
+    color: white;
+    font-size: 100px;
+    font-weight: 500;
+    font-family: Street;
+    position: absolute;
+    opacity: 0.5;
+}
+
+header > .musica_lado > main > h1{
+    color: white;
+    margin-bottom: 150px;
+    border-bottom: 2px solid white;
+}

@@ -333,6 +333,7 @@ header > .musica_lado > nav > ul > a {
     cursor: pointer;
     transition: .3s linear;
     font-family: Tag;
+    letter-spacing: 2px;
 }
 
 
