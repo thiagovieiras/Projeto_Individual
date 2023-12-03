@@ -54,6 +54,28 @@ function buscarTop10(req, res) {
 
 }
 
+function buscarArtistas(req, res) {
+    var idUsuario = req.body.idUser
+    
+    acessoModel.selecionarPerfil(idUsuario).then(result => {
+        var idPerfil = result[0].idPerfilUsuario;
+          
+        acessoModel.buscarArtistas(idPerfil)
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao buscar o top 10.", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        })
+    })
+
+}
+
 function Top10(req, res) {
 
     acessoModel.Top10()
@@ -75,6 +97,7 @@ function Top10(req, res) {
 module.exports = {
     selecionarPerfil,
     buscarTop10,
+    buscarArtistas,
     Top10
 }
 

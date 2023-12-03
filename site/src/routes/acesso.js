@@ -3,12 +3,12 @@ var router = express.Router();
 
 var acessoController = require("../controllers/acessoController");
 
-router.post("/acesso", function (req, res) {
-    acessoController.acesso(req, res);
-})
-
 router.post("/buscarTop10", function (req, res) {
     acessoController.buscarTop10(req, res);
+})
+
+router.post("/buscarArtistas", function (req, res) {
+    acessoController.buscarArtistas(req, res);
 })
 
 router.post("/top10", function(req, res) {
