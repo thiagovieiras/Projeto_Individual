@@ -476,7 +476,7 @@ header > .master_play > .opcoes_aba {
 
 header > .master_play > .opcoes_aba > .vol {
     position: relative;
-    height: 2px;
+    height: 3px;
     width: 100px;
     margin: 0 35px 0 50px;
     background: rgb(168, 168, 168);
@@ -493,7 +493,7 @@ header > .master_play > .opcoes_aba > .vol > .bi{
 header > .master_play > .opcoes_aba > .vol > input {
     position: absolute;
     width: 100%;
-    top: -10px;
+    top: -5px;
     left: 0;
     cursor: pointer;
     z-index: 999999;
@@ -514,7 +514,7 @@ header > .master_play > .opcoes_aba > .vol > .vol_barra::before {
     position: absolute;
     background: red;
     display: block;
-    height: 2px;
+    height: 3px;
     width: 100%;
     border-radius: 7px;
     top: 0;

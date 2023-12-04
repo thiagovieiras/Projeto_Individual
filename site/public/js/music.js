@@ -1,12 +1,16 @@
 var audioAtual = undefined;
 var unPlay;
+var audio = '';
+var onda = '';
+var play = '';
+var botao = '';
 
 
 function selecionar(musica) {
 
-  var audio = musica.querySelector('.audio-player');
-  var onda = document.getElementsByClassName('onda')[0];
-  var play = musica.querySelector('.bi');
+  audio = musica.querySelector('.audio-player');
+  onda = document.getElementsByClassName('onda')[0];
+  play = musica.querySelector('.bi');
 
 
   var h5 = musica.querySelector('h5')
@@ -15,7 +19,7 @@ function selecionar(musica) {
   var nomeMusica = h5.children[1].innerHTML
 
 
-
+// the peacocks feat. Stan Getz
 
   var capaSom = document.getElementById("capa");
   var bgImagem = musica.querySelector(".img").style.backgroundImage;
@@ -27,32 +31,10 @@ function selecionar(musica) {
   nomeSom.innerHTML = nome;
 
   var divViewer = document.querySelector('.view')
+  
 
-  var botao = document.getElementById("play");
-
-  if (divViewer) divViewer.style.display = 'flex';
-
-
-  botao.addEventListener('click', () => {
-    if (audio.paused) {
-      audio.play();
-
-      botao.classList.remove('bi-play-circle-fill');
-      botao.classList.add('bi-pause-circle-fill');
-      play.classList.remove('bi-play-circle-fill');
-      play.classList.add('bi-pause-circle-fill');
-      onda.classList.add('ativo2');
-    } else {
-      audio.pause();
-
-      botao.classList.remove('bi-pause-circle-fill');
-      botao.classList.add('bi-play-circle-fill');
-      play.classList.remove('bi-pause-circle-fill');
-      play.classList.add('bi-play-circle-fill');
-      onda.classList.remove('ativo2');
-    }
-  });
-
+  botao = document.getElementById("play");
+  
   if (audioAtual && audioAtual !== audio) {
     audioAtual.pause();
     audioAtual.currentTime = 0;
@@ -62,6 +44,8 @@ function selecionar(musica) {
 
   audioAtual = audio;
   unPlay = play
+
+  if (divViewer) divViewer.style.display = 'flex';
 
   if (audio.paused) {
     audio.play();
@@ -186,6 +170,32 @@ function selecionar(musica) {
 window.onload = function() {
   obterDadosGrafico(); 
   listarMusicas();
+
+  
+  audio = document.querySelector('.audio-player');
+  onda = document.getElementsByClassName('onda')[0];
+  play = document.querySelector('.bi');
+  botao = document.getElementById("play");
+
+  botao.addEventListener('click', () => {
+    if (audio.paused) {
+      audio.play();
+
+      botao.classList.remove('bi-play-circle-fill');
+      botao.classList.add('bi-pause-circle-fill');
+      play.classList.remove('bi-play-circle-fill');
+      play.classList.add('bi-pause-circle-fill');
+      onda.classList.add('ativo2');
+    } else {
+      audio.pause();
+
+      botao.classList.remove('bi-pause-circle-fill');
+      botao.classList.add('bi-play-circle-fill');
+      play.classList.remove('bi-pause-circle-fill');
+      play.classList.add('bi-play-circle-fill');
+      onda.classList.remove('ativo2');
+    }
+  });
 }
 
 var listarMusic = []
