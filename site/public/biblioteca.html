@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/biblioteca.css">
     <!-- <script src="biblioteca.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/biblioteca.js"></script>
 
 </head>
 
@@ -23,10 +24,10 @@
                     <a href="logado.html">Inicio <span></span></a>
                     <a href="explorar.html">EXPLORAR <span></span></a>
                 </ul>
-                <a href="explorar.html" class="procura">
+                <div class="procura">
                     <label for="procurar"><i class="bi bi-search"></i></label>
                     <input type="text" placeholder="O que você quer ouvir?" id="procurar">
-                </a>
+                </div>
                 <a href="biblioteca.html" class="usuario">
                     <img src="assets/imagens/fotoperfil.jpg" alt="usuario" id="perfil">
                 </a>
@@ -49,214 +50,8 @@
             </div>
 
         </div>
-        <div>
-            <a href="login.html">Sair</a>
-        </div>
 
     </header>
 
 </body>
-
 </html>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-
-    let proximaAtualizacao;
-
-    window.onload = obterDadosGrafico();
-
-    function alterarTitulo() {
-
-        // var idUsuario = sessionStorage.ID_USUARIO;
-
-        var nomeUsuario = document.getElementById(`nomeUsuario`)
-        nomeUsuario.innerHTML = sessionStorage.NOME_USUARIO
-    }
-
-
-    function obterDadosGrafico() {
-
-        alterarTitulo();
-
-        if (proximaAtualizacao != undefined) {
-            clearTimeout(proximaAtualizacao);
-        }
-
-        buscartop10()
-            .then(function (respostaTop) {
-                console.log(`Dados recebidos: ${JSON.stringify(respostaTop)}`);
-                respostaTop.reverse();
-            })
-            .then(buscarartista)
-            .then(function (respostaArtis) {
-                console.log(`Dados recebidos: ${JSON.stringify(respostaTop)}`);
-                respostaTop.reverse();
-                plotarGrafico(respostaTop, respostaArtis);
-            })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados para os gráficos: ${error.message}`);
-            });
-    }
-
-    function buscartop10() {
-
-        return fetch(`/acesso/buscarTop10`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                idUser: sessionStorage.ID_USUARIO
-            }),
-        })
-            .then(function (respostaTop) {
-                console.log("respostaTop: ", respostaTop);
-                if (respostaTop.ok) return respostaTop.json();
-                else throw "Nenhum dado encontrado ou erro na API";
-            });
-    }
-
-    function buscarartista() {
-
-        return fetch(`/acesso/buscarArtistas`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                idUser: sessionStorage.ID_USUARIO
-            }),
-        })
-            .then(function (respostaArtis) {
-                console.log("respostaArtis: ", respostaArtis);
-                if (respostaArtis.ok) return respostaArtis.json();
-                else throw "Nenhum dado encontrado ou erro na API";
-            });
-    }
-
-
-
-    function plotarGrafico(respostaTop, respostaArtis) {
-
-        console.log('iniciando plotagem do grafico...')
-
-        var nome_musica = []
-        var dataTop = []
-
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-            nome_musica.push(registro.NomeMúsica);
-            dataTop.push(registro.Repetições);
-        }
-
-        let grafico = new Chart(
-            document.getElementById(`grafico`), {
-            type: 'bar',
-            data: {
-                labels: nome_musica,
-                datasets: [{
-                    label: 'Músicas mais acessadas',
-                    data: dataTop,
-                    borderWidth: 1
-                }]
-            },
-        });
-
-        var nome_artista = []
-        var dataArt = []
-
-        for (i = 0; i < resposta.length; i++) {
-            var registro = resposta[i];
-
-            nome_artista.push(registro.NomeArtista);
-            dataArt.push(registro.TopArtistas);
-        }
-
-        let artista = new Chart(
-            document.getElementById(`artista`), {
-            type: 'bar',
-            data: {
-                labels: nome_artista,
-                datasets: [{
-                    label: 'Músicas mais acessadas',
-                    data: dataArt,
-                    borderWidth: 1
-                }]
-            },
-        });
-
-        setTimeout(() => atualizarGrafico(dataTop, nome_musica, grafico, dataArt, nome_artista, artista))
-    }
-
-    function atualizarGrafico(dataTop, nome_musica, grafico, dataArt, nome_artista, artista) {
-
-        atualizarTop()
-            .then(function (respostaTop) {
-                if (respostaTop.ok) {
-                    respostaTop.json().then(function (novoRegistroTop) {
-
-                        console.log(`Dados recebidos: ${JSON.stringify(novoRegistroTop)}`);
-
-                        if (novoRegistroTop[0].NomeMúsica == nome_musica[nome_musica.length - 1]) {
-                            console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-                        } else {
-                            nome_musica.shift();
-                            nome_musica.push(novoRegistroTop[0].NomeMúsica);
-
-                            dataTop.shift();  // apagar o primeiro de umidade
-                            dataTop.push(novoRegistroTop[0].Repetições); // incluir uma nova medida de umidade
-
-                            grafico.update();
-                        }
-                    })
-                } else {
-                    console.error('Nenhum dado encontrado ou erro na API');
-                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(dataTop, nome_musica, grafico, dataArt, nome_artista, artista), 2000);
-                }
-            })
-            .then(atualizarArt)
-            .then(function (respostaArtis) {
-                if (respostaArtis.ok) {
-                    respostaArtis.json().then(function (novoRegistroArt) {
-
-                        console.log(`Dados recebidos: ${JSON.stringify(novoRegistroArt)}`);
-
-                        if (novoRegistroArt[0].NomeArtista == nome_artista[nome_artista.length - 1]) {
-                            console.log("Como não há dados novos para captura, o gráfico não atualizará.")
-                        } else {
-                            // tirando e colocando valores no gráfico
-                            nome_artista.shift(); // apagar o primeiro
-                            nome_artista.push(novoRegistroArt[0].NomeArtista); // incluir um novo momento
-
-                            dataArt.shift();  // apagar o primeiro de umidade
-                            dataArt.push(novoRegistroArt[0].TopArtistas); // incluir uma nova medida de umidade
-
-                            artista.update();
-                        }
-
-                        // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                        proximaAtualizacao = setTimeout(() => atualizarGrafico(dataTop, nome_musica, grafico, dataArt, nome_artista, artista), 2000);
-                    })
-                } else {
-                    console.error('Nenhum dado encontrado ou erro na API');
-                    // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(dataTop, nome_musica, grafico, dataArt, nome_artista, artista), 2000);
-                }
-
-            })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados para os gráficos: ${error.message}`);
-            });
-    }
-
-    function atualizarTop() {
-        return fetch(`/acesso/buscarTop10`, { cache: 'no-store' })
-    }
-
-    function atualizarArt() {
-        return fetch(`/acesso/buscarArtistas`, { cache: 'no-store' })
-    }
-
-
-</script>
