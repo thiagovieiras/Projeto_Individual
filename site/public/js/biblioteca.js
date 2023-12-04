@@ -110,9 +110,26 @@ function plotarGraficoTop(resposta) {
             datasets: [{
                 label: 'Músicas mais acessadas',
                 data: data,
-                borderWidth: 1
+                borderWidth: 1,
+                backgroundColor: '#ff1717b2',
+                borderColor: '#ffffff'
             }]
         },
+        options: {
+            scales: {
+                y: {
+                    ticks: {color: 'white'}
+                },
+                x: {
+                    ticks: {color: 'white'}
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {color: 'white'}
+                }
+            }
+        }
     });
 
     setTimeout(() => atualizarGraficoTop(data, nome_musica, Grafico))
@@ -142,9 +159,26 @@ function plotarGraficoArt(resposta) {
             datasets: [{
                 label: 'Músicas mais acessadas',
                 data: data,
-                borderWidth: 1
+                borderWidth: 1,
+                backgroundColor: '#ff1717b2',
+                borderColor: '#ffffff'
             }]
         },
+        options: {
+            scales: {
+                y: {
+                    ticks: {color: 'white'}
+                },
+                x: {
+                    ticks: {color: 'white'}
+                }
+            },
+            plugins: {
+                legend: {
+                    labels: {color: 'white'}
+                }
+            }
+        }
     });
 
     setTimeout(() => atualizarGraficoArt(data, nome_artista, Artista))

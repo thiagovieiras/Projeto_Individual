@@ -433,7 +433,7 @@ header > .musica_lado > .area_musica > .conteudo > .botoes > button {
 }
 
 header > .musica_lado > .area_musica > .conteudo > .botoes > button:hover {
-    border: 2px solid rgba(255, 23, 23, 0.699);
+    border: 2px solid #ff1717b2;
     border-radius: 20px;
     background: none;
     color: rgb(0, 0, 0);
