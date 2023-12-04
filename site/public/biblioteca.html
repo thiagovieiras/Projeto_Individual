@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil | Mafia</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha512-qZvrmS2ekKPF2mSznTQsxqPgnpkI4DNTlrdUmTzrDgektczlKNRRhy5X5AAOnx5S09ydFYWWNSfcEqDTTHgtNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/biblioteca.css">
     <!-- <script src="biblioteca.js"></script> -->
@@ -50,6 +51,7 @@
                 </section>
                 <div class="exit">
                     <a href="login.html">Sair</a>
+                    <!-- <button onclick="gerarPDF()">Download Relatório</button> -->
                 </div>
             </div>
 
@@ -59,3 +61,28 @@
 
 </body>
 </html>
+
+<script>
+
+window.jsPDF = window.jspdf.jsPDF;
+
+function gerarPDF() {
+    
+    var doc = new jsPDF();
+
+    var chartTemp = document.getElementById(`grafico`);
+    var imageDataTemp = chartTemp.toDataURL('image/png');
+    
+    doc.addImage(imageDataTemp, 'PNG', 10, 10, 90, 45);
+    
+    let espaçoEntre = 50;
+
+    var chartUmi = document.getElementById(`artista`);
+    var imageDataUmi = chartUmi.toDataURL('image/png');
+
+    doc.addImage(imageDataUmi, 'PNG', 10, 10 + espaçoEntre, 90, 45);
+
+    doc.save('relatório.pdf');
+  }
+
+</script>
