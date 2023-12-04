@@ -115,17 +115,17 @@ function selecionar(musica) {
       barra2.style.width = `${procuraBarra}%`;
       ponto.style.left = `${procuraBarra}%`;
 
-      // if (music_atual == music_duracao) {
-      //   for (n in listaMusic) {
-      //     var srcaudio = audio.getAttribute('src');
-      //     if (srcaudio == listarMusic[n]) {
-      //     var proximoAudioSrc = listarMusic[Number(n) + 1];
-      //     audio.setAttribute('src', proximoAudioSrc);
-      //     audio.play();
-      //     break
-      //     }
-      //   }
-      // }
+      if (music_atual == music_duracao) {
+        for (n in listaMusic) {
+          var srcaudio = audio.getAttribute('src');
+          if (srcaudio == listarMusic[n]) {
+          var proximoAudioSrc = listarMusic[Number(n) + 1];
+          audio.setAttribute('src', proximoAudioSrc);
+          audio.play();
+          break
+          }
+        }
+      }
     })
 
     procura.addEventListener('change', ()=>{
